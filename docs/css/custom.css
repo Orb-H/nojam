@@ -1,0 +1,7 @@
+del {
+    color: #999;
+}
+
+del:hover {
+    text-decoration: none;
+}

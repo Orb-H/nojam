@@ -1,0 +1,79 @@
+# ----
+# Site
+
+title: Orb_H의 PS 저장소라기에는 PS를 못한다
+url: "https://orb-h.github.io"
+baseurl: "/nojam"
+google_analytics_key:
+show_full_navigation: true
+
+# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
+logo: /images/favicon-480.png
+description: Personal Site for 
+author:
+  name: Orb_H
+  email: orb.cov@gmail.com
+  twitter: orb_h_ # twitter username without the @ symbol
+social:
+  name: Orb_H
+  links:
+    - https://orb-h.github.io/nojam
+
+# -----
+# Build
+
+timezone: Asia/Seoul
+
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENCE
+
+collections:
+  docs:
+    title: Documentation
+    permalink: /:path/
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      seo:
+        type: Article
+      _comments:
+        category: Group navigation links with this field
+        order: Used to sort links in the navigation
+      _options:
+        content:
+          width: 800
+          height: 2000
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      _comments:
+        type: Marks the impact of this release
+
+# -----------
+# CloudCannon
+
+types:
+  - minor
+  - major
