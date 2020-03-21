@@ -59,24 +59,33 @@
 				</ul>
 
 				<ul>
-					{% assign grouped = site.docs | group_by: 'category' %}
-					{% for group in grouped %}
-						<li class="nav-item top-level {% if group.name == page.category %}current{% endif %}">
-							{% assign items = group.items | sort: 'order' %}
-							<a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
-							<ul>
-								{% for item in items %}
-									<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
-								{% endfor %}
-							</ul>
-						</li>
-					{% endfor %}
+					{% assign grouped = site.docs | where: 'category', "문제를 푼 흔적" %}
+					<li class="nav-item top-level">
+						<a>문제를 푼 흔적</a>
+						<ul>
+							{% for item in grouped %}
+								<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
 				</ul>
 
 				<ul>
-					<li class="nav-item top-level {% if page.url == '/changelog/' %}current{% endif %}">
-						{% assign changelog = site.html_pages | where: 'url', '/changelog/' | first %}
-						<a href="{{ site.baseurl }}/changelog/">{{ changelog.title }}</a>
+					{% assign grouped = site.docs | where: 'category', "통계" %}
+					<li class="nav-item top-level">
+						<a>통계</a>
+						<ul>
+							{% for item in grouped %}
+								<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+
+				<ul>
+					<li class="nav-item top-level {% if page.url == '/updates/' %}current{% endif %}">
+						{% assign changelog = site.html_pages | where: 'url', '/updates/' | first %}
+						<a href="{{ site.baseurl }}/updates/">{{ changelog.title }}</a>
 					</li>
 				</ul>
 			</nav>
