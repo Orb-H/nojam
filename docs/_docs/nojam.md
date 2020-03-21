@@ -18,7 +18,8 @@ order: 1
                 <th onclick="sortTable(0)">번호</th>
                 <th onclick="sortTable(1)">이름</th>
                 <th onclick="sortTable(2)">언어</th>
-                <th onclick="sortTable(3)">날짜</th>
+                <th onclick="sortTable(3)">난이도</th>
+                <th onclick="sortTable(4)">날짜</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@ order: 1
                     <td>{{ item.num }}</td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.lang }}</td>
+                    <td>{{ item.diff }}</td>
                     <td>{{ item.date }}</td>
                 </tr>
             {% endfor %}
