@@ -22,23 +22,15 @@ order: 1
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1000</td>
-                <td>asdf</td>
-                <td>Python</td>
-                <td>2020-03-21 23:42:47</td>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td>fdsa</td>
-                <td>C++</td>
-                <td>2020-03-21 23:42:57</td>
-            </tr>
-            <!--{% assign items = site.docs | where: 'category', "nojam" %}
+            {% assign items = site.docs | where: 'category', "nojam" %}
             {% for item in items %}
                 <tr>
+                    <td>{{ item.num }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.lang }}</td>
+                    <td>{{ item.date }}</td>
                 </tr>
-            {% endfor %}-->
+            {% endfor %}
         </tbody>
     </table>
 </details>
