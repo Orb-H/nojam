@@ -12,6 +12,7 @@ order: 1
 
 <details>
     <summary>푼 문제 목록 펼치기/접기</summary>
+    * 헤더를 클릭하면 항목 별 정렬이 가능합니다.
     <table id="problems">
         <thead>
             <tr>
@@ -23,14 +24,30 @@ order: 1
             </tr>
         </thead>
         <tbody>
-            {% assign items = site.docs | where: 'category', "nojam" %}
+            {% assign items = site.docs | where: 'category', "백준" %}
             {% for item in items %}
                 <tr>
-                    <td>{{ item.num }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.lang }}</td>
-                    <td>{{ item.diff }}</td>
-                    <td>{{ item.date }}</td>
+                    <td>{{ item.solve_num }}</td>
+                    <td><a href="{{ item.url | relative_url }}">{{ item.solve_name }}</a></td>
+                    <td>{{ item.solve_lang.name }}</td>
+					{% assign rank = item.solve_diff | minus: 1 | divided_by: 5 %}
+                    {% case rank %}
+                        {% when 0 %}
+							<td class="diff_ruby">Ruby {{ item.solve_diff }}</td>
+                        {% when 1 %}
+							<td class="diff_diamond">Diamond {{ item.solve_diff | minus: 5 }}</td>
+                        {% when 2 %}
+							<td class="diff_platinum">Platinum {{ item.solve_diff | minus: 10 }}</td>
+                        {% when 3 %}
+							<td class="diff_gold">Gold {{ item.solve_diff | minus: 15 }}</td>
+                        {% when 4 %}
+							<td class="diff_silver">Silver {{ item.solve_diff | minus: 20 }}</td>
+                        {% when 5 %}
+							<td class="diff_bronze">Bronze {{ item.solve_diff | minus: 25 }}</td>
+                        {% else %}
+							<td class="diff_unrated">Unrated</td>
+                    {% endcase %}
+                    <td>{{ item.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -5,3 +5,35 @@ del {
 del:hover {
     text-decoration: none;
 }
+
+article a {
+    color: #0080ff;
+}
+
+.diff_unrated {
+    color: #2d2d2d;
+}
+
+.diff_bronze {
+    color: #ad5600;
+}
+
+.diff_silver {
+    color: #435f7a;
+}
+
+.diff_gold {
+    color: #ec9a00;
+}
+
+.diff_platinum {
+    color: #27e2a4;
+}
+
+.diff_diamond {
+    color: #00b4fc;
+}
+
+.diff_ruby {
+    color: #ff0062;
+}
