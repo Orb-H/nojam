@@ -2,7 +2,6 @@
 layout: default
 ---
 
-<p>
 <a href="noj.am/{{ page.solve_num }}">문제 링크</a>
 <div align=right>Solved at {{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</div>
 {% assign rank = page.solve_diff | minus: 1 | divided_by: 5 %}
@@ -46,6 +45,7 @@ layout: default
 백준 태그: {% for tag in page.solve_tag %}<code>{{ tag }}</code> {% endfor %}<br/>
 solved.ac 태그: {% for tag in page.solve_solved_tag %}<code>{{ tag }}</code> {% endfor %}
 </p>
+<p>
 </p>
 
 {{ content }}
