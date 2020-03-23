@@ -9,30 +9,30 @@ function sortTable(n) {
         switching = false;
         rows = table.rows;
         isnum = rows[0].getElementsByTagName("TH")[n].classList.contains("num_col");
-        for (i = 1; i < (rows.length - 1); i++) {
+        for (i = 1; i < rows.length - 1; i++) {
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[n];
             y = rows[i + 1].getElementsByTagName("TD")[n];
             if (dir == "asc") {
                 if (!isnum) {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    if (x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
                         shouldSwitch = true;
                         break;
                     }
                 } else {
-                    if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                    if (Number(x.textContent) > Number(y.textContent)) {
                         shouldSwitch = true;
                         break;
                     }
                 }
             } else if (dir == "desc") {
                 if (!isnum) {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    if (x.textContent.toLowerCase() < y.textContent.toLowerCase()) {
                         shouldSwitch = true;
                         break;
                     }
                 } else {
-                    if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                    if (Number(x.textContent) < Number(y.textContent)) {
                         shouldSwitch = true;
                         break;
                     }

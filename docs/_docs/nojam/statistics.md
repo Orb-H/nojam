@@ -172,4 +172,4 @@ category: 통계
     </tbody>
 </table>
 
-<script src="{{ site.baseurl }}/scripts/sort.js">
+<script src="{{ site.baseurl }}/scripts/sort.js" charset="utf-8">

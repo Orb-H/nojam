@@ -74,4 +74,4 @@ order: 1
 
 </details>
 
-<script src="{{ site.baseurl }}/scripts/sort.js">
+<script src="{{ site.baseurl }}/scripts/sort.js" charset="utf-8">
