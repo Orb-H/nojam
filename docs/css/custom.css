@@ -12,28 +12,35 @@ article a {
 
 .diff_unrated {
     color: #2d2d2d;
+    font-weight: bold;
 }
 
 .diff_bronze {
     color: #ad5600;
+    font-weight: bold;
 }
 
 .diff_silver {
     color: #435f7a;
+    font-weight: bold;
 }
 
 .diff_gold {
     color: #ec9a00;
+    font-weight: bold;
 }
 
 .diff_platinum {
     color: #27e2a4;
+    font-weight: bold;
 }
 
 .diff_diamond {
     color: #00b4fc;
+    font-weight: bold;
 }
 
 .diff_ruby {
     color: #ff0062;
+    font-weight: bold;
 }
