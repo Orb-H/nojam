@@ -24,7 +24,7 @@ order: 1
             </tr>
         </thead>
         <tbody>
-            {% assign items = site.docs | where: 'category', "백준" %}
+            {% assign items = site.docs | where: 'category', "백준" | sort: "solve_num" %}
             {% for item in items %}
                 <tr>
                     <td>{{ item.solve_num }}</td>
