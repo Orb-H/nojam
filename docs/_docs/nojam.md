@@ -34,20 +34,41 @@ order: 1
 					{% assign rank = item.solve_diff | minus: 1 | divided_by: 5 %}
                     {% case rank %}
                         {% when 0 %}
-							<td class="diff_ruby">Ruby {{ item.solve_diff }}</td>
+							{% assign diff = item.solve_diff %}
+							<b class="diff_ruby">&#{{ diff | plus: 9311 }}; Ruby
                         {% when 1 %}
-							<td class="diff_diamond">Diamond {{ item.solve_diff | minus: 5 }}</td>
+							{% assign diff = item.solve_diff | minus: 5 %}
+							<b class="diff_diamond">&#{{ diff | plus: 9311 }}; Diamond
                         {% when 2 %}
-							<td class="diff_platinum">Platinum {{ item.solve_diff | minus: 10 }}</td>
+							{% assign diff = item.solve_diff | minus: 10 %}
+							<b class="diff_platinum">&#{{ diff | plus: 9311 }}; Platinum
                         {% when 3 %}
-							<td class="diff_gold">Gold {{ item.solve_diff | minus: 15 }}</td>
+							{% assign diff = item.solve_diff | minus: 15 %}
+							<b class="diff_gold">&#{{ diff | plus: 9311 }}; Gold
                         {% when 4 %}
-							<td class="diff_silver">Silver {{ item.solve_diff | minus: 20 }}</td>
+							{% assign diff = item.solve_diff | minus: 20 %}
+							<b class="diff_silver">&#{{ diff | plus: 9311 }}; Silver
                         {% when 5 %}
-							<td class="diff_bronze">Bronze {{ item.solve_diff | minus: 25 }}</td>
+        					{% assign diff = item.solve_diff | minus: 25 %}
+							<b class="diff_bronze">&#{{ diff | plus: 9311 }}; Bronze
                         {% else %}
-							<td class="diff_unrated">Unrated</td>
+							<b class="diff_unrated">&#9471; Unrated
                     {% endcase %}
+
+					{% case diff %}
+						{% when 1 %}
+							I
+						{% when 2 %}
+							II
+						{% when 3 %}
+							III
+						{% when 4 %}
+							IV
+						{% when 5 %}
+							V
+					{% endcase %}
+					</b>
+					</td>
                     <td>{{ item.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</td>
                 </tr>
             {% endfor %}

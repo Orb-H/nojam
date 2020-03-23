@@ -5,6 +5,43 @@ layout: default
 <p>
 <a href="noj.am/{{ page.solve_num }}">문제 링크</a>
 <div align=right>Solved at {{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</div>
+{% assign rank = page.solve_diff | minus: 1 | divided_by: 5 %}
+{% case rank %}
+    {% when 0 %}
+        {% assign diff = page.solve_diff %}
+        <b class="diff_ruby">&#{{ diff | plus: 10101 }}; Ruby
+    {% when 1 %}
+        {% assign diff = page.solve_diff | minus: 5 %}
+        <b class="diff_diamond">&#{{ diff | plus: 10101 }}; Diamond
+    {% when 2 %}
+        {% assign diff = page.solve_diff | minus: 10 %}
+        <b class="diff_platinum">&#{{ diff | plus: 10101 }}; Platinum
+    {% when 3 %}
+        {% assign diff = page.solve_diff | minus: 15 %}
+        <b class="diff_gold">&#{{ diff | plus: 10101 }}; Gold
+    {% when 4 %}
+        {% assign diff = page.solve_diff | minus: 20 %}
+        <b class="diff_silver">&#{{ diff | plus: 10101 }}; Silver
+    {% when 5 %}
+        {% assign diff = page.solve_diff | minus: 25 %}
+        <b class="diff_bronze">&#{{ diff | plus: 10101 }}; Bronze
+    {% else %}
+        <b class="diff_unrated">&#9471; Unrated
+{% endcase %}
+
+{% case diff %}
+{% when 1 %}
+    I
+{% when 2 %}
+    II
+{% when 3 %}
+    III
+{% when 4 %}
+    IV
+{% when 5 %}
+    V
+{% endcase %}
+</b>
 </p>
 
 {{ content }}
