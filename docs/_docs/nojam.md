@@ -16,7 +16,7 @@ order: 1
     <table id="problems">
         <thead>
             <tr>
-                <th onclick="sortTable(0)">번호</th>
+                <th onclick="sortTable(0)" class="num_col">번호</th>
                 <th onclick="sortTable(1)">이름</th>
                 <th onclick="sortTable(2)">언어</th>
                 <th onclick="sortTable(3)">난이도</th>
@@ -30,88 +30,48 @@ order: 1
                     <td>{{ item.solve_num }}</td>
                     <td><a href="{{ item.url | relative_url }}">{{ item.solve_name }}</a></td>
                     <td>{{ item.solve_lang.name }}</td>
-					<td><div style="display: none;">{{ item.solve_diff }}</div>
-					{% assign rank = item.solve_diff | minus: 1 | divided_by: 5 %}
+                    {% assign rank = item.solve_diff | minus: 1 | divided_by: 5 %}
                     {% case rank %}
                         {% when 0 %}
-							{% assign diff = item.solve_diff %}
-							<b class="diff_ruby">&#{{ diff | plus: 9311 }}; Ruby
+                            {% assign diff = item.solve_diff %}
+                            <td class="diff_ruby"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Ruby
                         {% when 1 %}
-							{% assign diff = item.solve_diff | minus: 5 %}
-							<b class="diff_diamond">&#{{ diff | plus: 9311 }}; Diamond
+                            {% assign diff = item.solve_diff | minus: 5 %}
+                            <td class="diff_diamond"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Diamond
                         {% when 2 %}
-							{% assign diff = item.solve_diff | minus: 10 %}
-							<b class="diff_platinum">&#{{ diff | plus: 9311 }}; Platinum
+                            {% assign diff = item.solve_diff | minus: 10 %}
+                            <td class="diff_platinum"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Platinum
                         {% when 3 %}
-							{% assign diff = item.solve_diff | minus: 15 %}
-							<b class="diff_gold">&#{{ diff | plus: 9311 }}; Gold
+                            {% assign diff = item.solve_diff | minus: 15 %}
+                            <td class="diff_gold"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Gold
                         {% when 4 %}
-							{% assign diff = item.solve_diff | minus: 20 %}
-							<b class="diff_silver">&#{{ diff | plus: 9311 }}; Silver
+                            {% assign diff = item.solve_diff | minus: 20 %}
+                            <td class="diff_silver"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Silver
                         {% when 5 %}
-        					{% assign diff = item.solve_diff | minus: 25 %}
-							<b class="diff_bronze">&#{{ diff | plus: 9311 }}; Bronze
+                            {% assign diff = item.solve_diff | minus: 25 %}
+                            <td class="diff_bronze"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Bronze
                         {% else %}
-							<b class="diff_unrated">&#9471; Unrated
+                            <td class="diff_unrated"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#65311; Unrated
                     {% endcase %}
-
-					{% case diff %}
-						{% when 1 %}
-							I
-						{% when 2 %}
-							II
-						{% when 3 %}
-							III
-						{% when 4 %}
-							IV
-						{% when 5 %}
-							V
-					{% endcase %}
-					</b>
-					</td>
+                    {% case diff %}
+                    {% when 1 %}
+                        I
+                    {% when 2 %}
+                        II
+                    {% when 3 %}
+                        III
+                    {% when 4 %}
+                        IV
+                    {% when 5 %}
+                        V
+                    {% endcase %}
+                    </td>
                     <td>{{ item.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
 </details>
 
-<script>
-// Code from W3school.net
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("problems");
-  switching = true;
-  dir = "asc";
-  while (switching) {
-    switching = false;
-    rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount ++;
-    } else {
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
-</script>
+<script src="{{ site.baseurl }}/scripts/sort.js">
