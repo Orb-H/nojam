@@ -42,6 +42,10 @@ layout: default
     V
 {% endcase %}
 </div>
+<p>
+백준 태그: {% for tag in page.solve_tag %}<code>{{ tag }}</code> {% endfor %}<br/>
+solved.ac 태그: {% for tag in page.solve_solved_tag %}<code>{{ tag }}</code> {% endfor %}
+</p>
 </p>
 
 {{ content }}
