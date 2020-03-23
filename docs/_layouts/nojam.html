@@ -9,24 +9,24 @@ layout: default
 {% case rank %}
     {% when 0 %}
         {% assign diff = page.solve_diff %}
-        <b class="diff_ruby">&#{{ diff | plus: 10101 }}; Ruby
+        <div class="diff_ruby">&#{{ diff | plus: 10101 }}; Ruby
     {% when 1 %}
         {% assign diff = page.solve_diff | minus: 5 %}
-        <b class="diff_diamond">&#{{ diff | plus: 10101 }}; Diamond
+        <div class="diff_diamond">&#{{ diff | plus: 10101 }}; Diamond
     {% when 2 %}
         {% assign diff = page.solve_diff | minus: 10 %}
-        <b class="diff_platinum">&#{{ diff | plus: 10101 }}; Platinum
+        <div class="diff_platinum">&#{{ diff | plus: 10101 }}; Platinum
     {% when 3 %}
         {% assign diff = page.solve_diff | minus: 15 %}
-        <b class="diff_gold">&#{{ diff | plus: 10101 }}; Gold
+        <div class="diff_gold">&#{{ diff | plus: 10101 }}; Gold
     {% when 4 %}
         {% assign diff = page.solve_diff | minus: 20 %}
-        <b class="diff_silver">&#{{ diff | plus: 10101 }}; Silver
+        <div class="diff_silver">&#{{ diff | plus: 10101 }}; Silver
     {% when 5 %}
         {% assign diff = page.solve_diff | minus: 25 %}
-        <b class="diff_bronze">&#{{ diff | plus: 10101 }}; Bronze
+        <div class="diff_bronze">&#{{ diff | plus: 10101 }}; Bronze
     {% else %}
-        <b class="diff_unrated">&#65311; Unrated
+        <div class="diff_unrated">&#65311; Unrated
 {% endcase %}
 
 {% case diff %}
@@ -41,7 +41,7 @@ layout: default
 {% when 5 %}
     V
 {% endcase %}
-</b>
+</div>
 </p>
 
 {{ content }}
