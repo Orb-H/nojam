@@ -105,5 +105,5 @@ layout: null
 		});
 	}
 
-	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
+	displaySearchResults(idx.search(query), query); // Hand the results off to be displayed
 })();
