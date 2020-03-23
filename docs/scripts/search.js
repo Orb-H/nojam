@@ -73,10 +73,10 @@ layout: null
 			});
 
 			searchResultsEl.innerHTML = resultsHTML;
-			searchProcessEl.innerText = "Showing";
+			searchProcessEl.innerText = "에 대한 검색 결과:";
 		} else {
 			searchResultsEl.style.display = "none";
-			searchProcessEl.innerText = "No";
+			searchProcessEl.innerText = "에 대한 검색 결과 없음";
 		}
 	}
 
@@ -88,13 +88,11 @@ layout: null
 	idx.field("category");
 
 	var query = decodeURIComponent((getQueryVariable("q") || "").replace(/\+/g, "%20")),
-		searchQueryContainerEl = document.getElementById("search-query-container"),
 		searchQueryEl = document.getElementById("search-query"),
 		searchInputEl = document.getElementById("search-input");
 
 	searchInputEl.value = query;
 	searchQueryEl.innerText = query;
-	searchQueryContainerEl.style.display = "inline";
 
 	for (var key in window.data) {
 		idx.add({
