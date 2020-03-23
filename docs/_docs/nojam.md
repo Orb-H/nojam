@@ -16,11 +16,11 @@ order: 1
     <table id="problems">
         <thead>
             <tr>
-                <th onclick="sortTable(0)" class="num_col">번호</th>
-                <th onclick="sortTable(1)">이름</th>
-                <th onclick="sortTable(2)">언어</th>
-                <th onclick="sortTable(3)">난이도</th>
-                <th onclick="sortTable(4)">날짜</th>
+                <th onclick="sortTable(0,'problems')" class="num_col">번호</th>
+                <th onclick="sortTable(1,'problems')">이름</th>
+                <th onclick="sortTable(2,'problems')">언어</th>
+                <th onclick="sortTable(3,'problems')">난이도</th>
+                <th onclick="sortTable(4,'problems')">날짜</th>
             </tr>
         </thead>
         <tbody>

@@ -12,6 +12,12 @@ solve_lang:
 solve_diff: # 1 ~ 5 = Ruby 1 ~ 5, 6 ~ 10 = Diamond 1 ~ 5, 11 ~ 15 = Platinum 1 ~ 5, ... , 26 ~ 30 = Bronze 1 ~ 5, Other: Unrated
 solve_date: # Any date-format may be available; which liquid can understand
 solve_share: # Sharing code in acmicpc.net, if you want
+solve_tag: # Tag for acmicpc.net
+  - # Tag 1
+  - # Tag 2...
+solve_solved_tag: # Tag for solved.ac
+  - # Tag 1
+  - # Tag 2...
 ---
 
 Main Content

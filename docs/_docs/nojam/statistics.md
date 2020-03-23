@@ -3,14 +3,16 @@ title: 백준
 category: 통계
 ---
 
-**난이도**와 **푼 문제 수**를 클릭하면 정렬이 가능합니다. 전체 문제 수는 2020-03-23 14:10 기준입니다.
+각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 2020-03-24 00:00 기준입니다.
 
-<table id="problems">
+<details>
+<summary>난이도 별 통계</summary>
+<table id="prob_diff">
     <thead>
         <tr>
-            <th onclick="sortTable(0)">난이도</th>
-            <th onclick="sortTable(1)" class="num_col">푼 문제 수</th>
-            <th onclick="sortTable(2)" class="num_col">전체 문제 수</th>
+            <th onclick="sortTable(0,'prob_diff')">난이도</th>
+            <th onclick="sortTable(1,'prob_diff')" class="num_col">푼 문제 수</th>
+            <th onclick="sortTable(2,'prob_diff')" class="num_col">전체 문제 수</th>
         </tr>
     </thead>
     <tbody>
@@ -171,5 +173,66 @@ category: 통계
         </tr>
     </tbody>
 </table>
+</details>
+
+<details>
+<summary>백준 태그 별 통계</summary>
+<table id="prob_tag">
+    <thead>
+        <tr>
+            <th onclick="sortTable(0,'prob_tag')">태그</th>
+            <th onclick="sortTable(1,'prob_tag')" class="num_col">푼 문제 수</th>
+            <th onclick="sortTable(2,'prob_tag')" class="num_col">전체 문제 수</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tag in site.data.nojam_tag %}
+            <tr>
+                <td>{{ tag[0] }}</td>
+                <td>
+                {% assign docs = site.docs | where: "category", "백준" %}
+                {% assign count = 0 %}
+                {% for doc in docs %}
+                    {% if doc.solve_tag contains tag[0] %}
+                        {% assign count = count | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+                {{ count }}</td>
+                <td>{{ tag[1] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</details>
+
+<details>
+<summary>solved.ac 태그 별 통계</summary>
+<table id="prob_solved_tag">
+    <thead>
+        <tr>
+            <th onclick="sortTable(0,'prob_solved_tag')">태그</th>
+            <th onclick="sortTable(1,'prob_solved_tag')" class="num_col">푼 문제 수</th>
+            <th onclick="sortTable(2,'prob_solved_tag')" class="num_col">전체 문제 수</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tag in site.data.nojam_solved_tag %}
+            <tr>
+                <td>{{ tag[0] }}</td>
+                <td>
+                {% assign docs = site.docs | where: "category", "백준" %}
+                {% assign count = 0 %}
+                {% for doc in docs %}
+                    {% if doc.solve_solved_tag contains tag[0] %}
+                        {% assign count = count | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+                {{ count }}</td>
+                <td>{{ tag[1] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</details>
 
 <script src="{{ site.baseurl }}/scripts/sort.js" charset="utf-8">

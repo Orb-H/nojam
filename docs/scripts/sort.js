@@ -1,8 +1,8 @@
 // Code from W3school.net
-function sortTable(n) {
+function sortTable(n, id) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     var isnum;
-    table = document.getElementById("problems");
+    table = document.getElementById(id);
     switching = true;
     dir = "asc";
     while (switching) {
