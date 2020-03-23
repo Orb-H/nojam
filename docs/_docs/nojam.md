@@ -30,6 +30,7 @@ order: 1
                     <td>{{ item.solve_num }}</td>
                     <td><a href="{{ item.url | relative_url }}">{{ item.solve_name }}</a></td>
                     <td>{{ item.solve_lang.name }}</td>
+					<td><div style="display: none;">{{ item.solve_diff }}</div>
 					{% assign rank = item.solve_diff | minus: 1 | divided_by: 5 %}
                     {% case rank %}
                         {% when 0 %}
