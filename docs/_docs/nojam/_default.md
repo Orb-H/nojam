@@ -18,6 +18,7 @@ solve_tag: # Tag for acmicpc.net
 solve_solved_tag: # Tag for solved.ac
   - # Tag 1
   - # Tag 2...
+solve_solved_not_set: # true if difficulty is not fixed, otherwise set to false or remove this item
 ---
 
 Main Content
