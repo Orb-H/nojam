@@ -93,6 +93,10 @@
 						{% assign changelog = site.html_pages | where: 'url', '/updates/' | first %}
 						<a href="{{ site.baseurl }}/updates/">{{ changelog.title }}</a>
 					</li>
+					<li class="nav-item top-level">
+						{% assign changelog = site.html_pages | where: 'url', '/nojam/recent' | first %}
+						<a href="{{ site.baseurl }}/nojam/recent">백준: 가장 최근 푼 문제</a>
+					</li>
 				</ul>
 			</nav>
 		</header>
