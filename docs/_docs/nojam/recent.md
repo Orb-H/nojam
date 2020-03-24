@@ -1,6 +1,6 @@
 ---
 title: ""
-category: 백준
+category: 최근
 ---
 
 {% assign doc = site.docs | where: "category", "백준" | sort: "solve_date" | last %}
