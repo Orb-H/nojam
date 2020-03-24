@@ -5,6 +5,13 @@ category: 통계
 
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 2020-03-24 00:00 기준입니다.
 
+{% assign exp = 0 %}
+{% for num in (0..30) %}
+    {% assign exp_tmp = site.docs | where: "category", "백준" | where: "solve_diff", num | size %}
+    {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
+{% endfor %}
+solved.ac 기준 경험치: <b>{{ exp }}</b> XP
+
 <details>
 <summary>난이도 별 통계</summary>
 <table id="prob_diff">
