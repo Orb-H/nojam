@@ -41,10 +41,10 @@ layout: default
     V
 {% endcase %}
 </div>
-<p>
-백준 태그: {% for tag in page.solve_tag %}<code>{{ tag }}</code> {% endfor %}<br/>
-solved.ac 태그: {% for tag in page.solve_solved_tag %}<code>{{ tag }}</code> {% endfor %}
-</p>
+{% if page.solve_tag or page.solve_solved_tag %}<p>
+{% if page.solve_tag %}백준 태그: {% for tag in page.solve_tag %}<code>{{ tag }}</code> {% endfor %}<br/>{% endif %}
+{% if page.solve_solved_tag %}solved.ac 태그: {% for tag in page.solve_solved_tag %}<code>{{ tag }}</code> {% endfor %}{% endif %}
+</p>{% endif %}
 <p>
 </p>
 
