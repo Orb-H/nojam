@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<a href="noj.am/{{ page.solve_num }}">문제 링크</a>
+<a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
 <div align=right>Solved at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>, with <b>{{ page.solve_lang.name }}</b></div>
 {% if page.solve_solved_not_set %}<strike>{% endif %}
 {% assign rank = page.solve_diff | minus: 1 | divided_by: 5 %}
