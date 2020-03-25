@@ -1,0 +1,1 @@
+print(sum(5*min(ord(x),88)//16-17 for x in input()))
