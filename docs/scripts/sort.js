@@ -1,53 +1,43 @@
-// Code from W3school.net
+//return sort algorithm
+function s(dir, isnum) {
+    return function (a, b) {
+        a = isnum === 1 ? Number(a) : a;
+        b = isnum === 1 ? Number(b) : b;
+        if (a === b) {
+            return 0;
+        }
+        return (a > b ? 1 : -1) * (dir === 1 ? 1 : -1);
+    };
+}
+
 function sortTable(n, id) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    var isnum;
-    table = document.getElementById(id);
-    switching = true;
-    dir = "asc";
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        isnum = rows[0].getElementsByTagName("TH")[n].classList.contains("num_col");
-        for (i = 1; i < rows.length - 1; i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            if (dir == "asc") {
-                if (!isnum) {
-                    if (x.textContent.toLowerCase() > y.textContent.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else {
-                    if (Number(x.textContent) > Number(y.textContent)) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-            } else if (dir == "desc") {
-                if (!isnum) {
-                    if (x.textContent.toLowerCase() < y.textContent.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else {
-                    if (Number(x.textContent) < Number(y.textContent)) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
+    var table = document.getElementById(id);
+    var rows = table.rows;
+    var dir = 0;
+    var isnum = rows[0].getElementsByTagName("TH")[n].classList.contains("num_col") ? 1 : 0;
+    var so = s(1, isnum);
+
+    for (i = 1; i < rows.length - 1; i++) {
+        if (so(rows[i].cells[n].textContent, rows[i + 1].cells[n].textContent) > 0) {
+            console.log(i + " " + rows[i].cells[n].textContent + " " + rows[i + 1].cells[n].textContent + " " + (rows[i].cells[n].textContent > rows[i + 1].cells[n].textContent));
+            dir = 1;
+            break;
+        }
+    }
+
+    so = s(dir, isnum);
+
+    for (i = 1; i < rows.length - 1; i++) {
+        var m = i;
+        for (j = i + 1; j < rows.length; j++) {
+            var x = rows[m].cells[n].textContent;
+            var y = rows[j].cells[n].textContent;
+            if (so(x, y) > 0) {
+                m = j;
             }
         }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchcount++;
-        } else {
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
+        if (m !== i) {
+            rows[i].parentNode.insertBefore(rows[m], rows[i]);
         }
     }
 }
