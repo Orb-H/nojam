@@ -6,8 +6,9 @@ category: 통계
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 2020-03-24 00:00 기준입니다.
 
 {% assign exp = 0 %}
+{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
 {% for num in (0..30) %}
-    {% assign exp_tmp = site.docs | where: "category", "백준" | where: "solve_diff", num | size %}
+    {% assign exp_tmp = docs | where: "solve_diff", num | size %}
     {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
 {% endfor %}
 solved.ac 기준 경험치: <b>{{ exp }}</b> XP
@@ -29,7 +30,7 @@ solved.ac 기준 경험치: <b>{{ exp }}</b> XP
             <td>6897</td>
         </tr>
         {% assign diff = site.data.nojam_diff %}
-        {% assign docs = site.docs | where: "category", "백준" %}
+        {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
         {% for num in (1..30) reversed %}
         <tr>
             <td class="diff_{{ diff[num].class }}"><div style="display:none;">{{ num | plus:10 }}</div>&#{{ num | minus: 1 | modulo: 5 | plus: 9312 }}; {{ diff[num].text }}</td>
@@ -56,7 +57,7 @@ solved.ac 기준 경험치: <b>{{ exp }}</b> XP
             <tr>
                 <td>{{ tag[0] }}</td>
                 <td>
-                {% assign docs = site.docs | where: "category", "백준" %}
+                {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
                 {% assign count = 0 %}
                 {% for doc in docs %}
                     {% if doc.solve_tag contains tag[0] %}
@@ -86,7 +87,7 @@ solved.ac 기준 경험치: <b>{{ exp }}</b> XP
             <tr>
                 <td>{{ tag[0] }}</td>
                 <td>
-                {% assign docs = site.docs | where: "category", "백준" %}
+                {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
                 {% assign count = 0 %}
                 {% for doc in docs %}
                     {% if doc.solve_solved_tag contains tag[0] %}
