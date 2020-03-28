@@ -30,41 +30,9 @@ order: 1
                     <td>{{ item.solve_num }}</td>
                     <td><a href="{{ item.url | relative_url }}">{{ item.solve_name }}</a></td>
                     <td>{{ item.solve_lang.name }}</td>
-                    {% assign rank = item.solve_diff | minus: 1 | divided_by: 5 %}
-                    {% case rank %}
-                        {% when 0 %}
-                            {% assign diff = item.solve_diff %}
-                            <td class="diff_ruby"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Ruby
-                        {% when 1 %}
-                            {% assign diff = item.solve_diff | minus: 5 %}
-                            <td class="diff_diamond"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Diamond
-                        {% when 2 %}
-                            {% assign diff = item.solve_diff | minus: 10 %}
-                            <td class="diff_platinum"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Platinum
-                        {% when 3 %}
-                            {% assign diff = item.solve_diff | minus: 15 %}
-                            <td class="diff_gold"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Gold
-                        {% when 4 %}
-                            {% assign diff = item.solve_diff | minus: 20 %}
-                            <td class="diff_silver"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Silver
-                        {% when 5 %}
-                            {% assign diff = item.solve_diff | minus: 25 %}
-                            <td class="diff_bronze"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#{{ diff | plus: 9311 }}; Bronze
-                        {% else %}
-                            <td class="diff_unrated"><div style="display: none;">{{ item.solve_diff | plus: 10 }}</div>&#65311; Unrated
-                    {% endcase %}
-                    {% case diff %}
-                    {% when 1 %}
-                        I
-                    {% when 2 %}
-                        II
-                    {% when 3 %}
-                        III
-                    {% when 4 %}
-                        IV
-                    {% when 5 %}
-                        V
-                    {% endcase %}
+                    {% assign diff = site.data.nojam_diff %}
+                    {% assign num = item.solve_diff %}
+                    <td class="diff_{{ diff[num].class }}"><div style="display: none;">{{ num | plus: 10 }}</div>&#{{ num | minus: 1 | modulo: 5 | plus: 9312 }}; {{ diff[num].text }}
                     </td>
                     <td>{{ item.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</td>
                 </tr>

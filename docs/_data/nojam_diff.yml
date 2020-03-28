@@ -1,0 +1,93 @@
+- class: Unrated
+  text: Unrated
+  tot_prob: 6897
+- class: ruby
+  text: Ruby I
+  tot_prob: 6
+- class: ruby
+  text: Ruby II
+  tot_prob: 11
+- class: ruby
+  text: Ruby III
+  tot_prob: 33
+- class: ruby
+  text: Ruby IV
+  tot_prob: 60
+- class: ruby
+  text: Ruby V
+  tot_prob: 121
+- class: diamond
+  text: Diamond I
+  tot_prob: 152
+- class: diamond
+  text: Diamond II
+  tot_prob: 166
+- class: diamond
+  text: Diamond III
+  tot_prob: 228
+- class: diamond
+  text: Diamond IV
+  tot_prob: 324
+- class: diamond
+  text: Diamond V
+  tot_prob: 334
+- class: platinum
+  text: Platinum I
+  tot_prob: 354
+- class: platinum
+  text: Platinum II
+  tot_prob: 379
+- class: platinum
+  text: Platinum III
+  tot_prob: 424
+- class: platinum
+  text: Platinum IV
+  tot_prob: 414
+- class: platinum
+  text: Platinum V
+  tot_prob: 421
+- class: gold
+  text: Gold I
+  tot_prob: 434
+- class: gold
+  text: Gold II
+  tot_prob: 422
+- class: gold
+  text: Gold III
+  tot_prob: 410
+- class: gold
+  text: Gold IV
+  tot_prob: 450
+- class: gold
+  text: Gold V
+  tot_prob: 442
+- class: silver
+  text: Silver I
+  tot_prob: 436
+- class: silver
+  text: Silver II
+  tot_prob: 302
+- class: silver
+  text: Silver III
+  tot_prob: 389
+- class: silver
+  text: Silver IV
+  tot_prob: 293
+- class: silver
+  text: Silver V
+  tot_prob: 359
+- class: bronze
+  text: Bronze I
+  tot_prob: 391
+- class: bronze
+  text: Bronze II
+  tot_prob: 534
+- class: bronze
+  text: Bronze III
+  tot_prob: 337
+- class: bronze
+  text: Bronze IV
+  tot_prob: 85
+- class: bronze
+  text: Bronze V
+  tot_prob: 58
