@@ -11,7 +11,7 @@ category: 통계
     {% assign exp_tmp = docs | where: "solve_diff", num | size %}
     {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
 {% endfor %}
-solved.ac 기준 경험치: <b>{{ exp }}</b> XP
+푼 문제 수: **{{ docs.size }}**개, solved.ac 기준 경험치: **{{ exp }}** XP
 
 <details>
 <summary>난이도 별 통계</summary>
@@ -26,11 +26,10 @@ solved.ac 기준 경험치: <b>{{ exp }}</b> XP
     <tbody>
         <tr>
             <td class="diff_unrated"><div style="display:none;">31</div>&#65311; Unrated</td>
-            <td>{{ site.docs | where: "category", "백준" | where: "solve_diff", 0 | size }}</td>
+            <td>{{ docs | where: "solve_diff", 0 | size }}</td>
             <td>6897</td>
         </tr>
         {% assign diff = site.data.nojam_diff %}
-        {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
         {% for num in (1..30) reversed %}
         <tr>
             <td class="diff_{{ diff[num].class }}"><div style="display:none;">{{ num | plus:10 }}</div>&#{{ num | minus: 1 | modulo: 5 | plus: 9312 }}; {{ diff[num].text }}</td>
@@ -57,7 +56,6 @@ solved.ac 기준 경험치: <b>{{ exp }}</b> XP
             <tr>
                 <td>{{ tag[0] }}</td>
                 <td>
-                {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
                 {% assign count = 0 %}
                 {% for doc in docs %}
                     {% if doc.solve_tag contains tag[0] %}
@@ -87,7 +85,6 @@ solved.ac 기준 경험치: <b>{{ exp }}</b> XP
             <tr>
                 <td>{{ tag[0] }}</td>
                 <td>
-                {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
                 {% assign count = 0 %}
                 {% for doc in docs %}
                     {% if doc.solve_solved_tag contains tag[0] %}
