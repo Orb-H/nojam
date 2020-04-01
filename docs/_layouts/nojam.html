@@ -3,7 +3,7 @@ layout: default
 ---
 
 <a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
-<div align=right>{% if page.solve_exclude != nil %}❌<font color="#f00"> Not Solved</font>{% else %}✔<font color="#090"> Solved</font> at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>, with <b>{{ page.solve_lang.name }}</b>{% endif %}</div>
+<div align=right>{% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font>{% else %}<font color="#090">✔ Solved</font> at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>, with <b>{{ page.solve_lang.name }}</b>{% endif %}</div>
 {% assign diff = site.data.nojam_diff %}
 {% assign num = page.solve_diff %}
 <div class="diff_{{ diff[num].class }}">
