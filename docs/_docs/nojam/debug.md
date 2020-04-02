@@ -1,6 +1,7 @@
 ---
 title: 백준
 category: 디버그용 페이지
+regenerate: true
 ---
 
 <details>
