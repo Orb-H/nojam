@@ -1,3 +1,44 @@
+GIT
+  remote: https://github.com/jekyll/jekyll-feed.git
+  revision: 4866d6db8bcddd6c8346f4c5eef2ed892be618f5
+  specs:
+    jekyll-feed (0.13.0)
+      jekyll (>= 3.7, < 5.0)
+
+GIT
+  remote: https://github.com/jekyll/jekyll-seo-tag.git
+  revision: 38ef0bea229de85f25b5735c432587c09b494398
+  specs:
+    jekyll-seo-tag (2.6.1)
+      jekyll (>= 3.3, < 5.0)
+
+GIT
+  remote: https://github.com/jekyll/jekyll-sitemap.git
+  revision: 01d817851f70b7ade68ebb0321ce6219e8ac80bf
+  specs:
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
+
+GIT
+  remote: https://github.com/jekyll/jekyll.git
+  revision: 2ef3281bad0b03dfa29ffd9498d5c8ce7df33203
+  specs:
+    jekyll (4.0.0)
+      addressable (~> 2.4)
+      colorator (~> 1.0)
+      em-websocket (~> 0.5)
+      i18n (~> 1.0)
+      jekyll-sass-converter (~> 2.0)
+      jekyll-watch (~> 2.0)
+      kramdown (~> 2.1)
+      kramdown-parser-gfm (~> 1.0)
+      liquid (~> 4.0)
+      mercenary (~> 0.4.0)
+      pathutil (~> 0.9)
+      rouge (~> 3.0)
+      safe_yaml (~> 1.0)
+      terminal-table (~> 1.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -12,37 +53,20 @@ GEM
     ffi (1.12.2-x64-mingw32)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
-    i18n (0.9.5)
+    i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    jekyll (3.8.4)
-      addressable (~> 2.4)
-      colorator (~> 1.0)
-      em-websocket (~> 0.5)
-      i18n (~> 0.7)
-      jekyll-sass-converter (~> 1.0)
-      jekyll-watch (~> 2.0)
-      kramdown (~> 1.14)
-      liquid (~> 4.0)
-      mercenary (~> 0.3.3)
-      pathutil (~> 0.9)
-      rouge (>= 1.7, < 4)
-      safe_yaml (~> 1.0)
-    jekyll-feed (0.11.0)
-      jekyll (~> 3.3)
-    jekyll-sass-converter (1.5.2)
-      sass (~> 3.4)
-    jekyll-seo-tag (2.5.0)
-      jekyll (~> 3.3)
-    jekyll-sitemap (1.2.0)
-      jekyll (~> 3.3)
+    jekyll-sass-converter (2.1.0)
+      sassc (> 2.0.1, < 3.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    kramdown (1.17.0)
+    kramdown (2.1.0)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     liquid (4.0.3)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    mercenary (0.3.6)
+    mercenary (0.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.3)
@@ -51,25 +75,25 @@ GEM
       ffi (~> 1.0)
     rouge (3.17.0)
     safe_yaml (1.0.5)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.2.1-x64-mingw32)
+      ffi (~> 1.9)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     tzinfo (2.0.1)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
+    unicode-display_width (1.7.0)
     wdm (0.1.1)
 
 PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  jekyll (= 3.8.4)
-  jekyll-feed (= 0.11.0)
-  jekyll-seo-tag (= 2.5.0)
-  jekyll-sitemap (= 1.2.0)
+  jekyll!
+  jekyll-feed!
+  jekyll-seo-tag!
+  jekyll-sitemap!
   tzinfo
   tzinfo-data
   wdm (>= 0.1.0)
