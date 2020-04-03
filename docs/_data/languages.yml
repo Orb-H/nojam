@@ -1,0 +1,25 @@
+"C":
+  name: C
+  extension: .c
+  highlight: c
+  class: c
+"C++":
+  name: C++
+  extension: .cpp
+  highlight: cpp
+  class: cpp
+"Java":
+  name: Java
+  extension: .java
+  highlight: java
+  class: java
+"Python 2":
+  name: Python 2
+  extension: .py
+  highlight: python
+  class: python2
+"Python 3":
+  name: Python 3
+  extension: .py
+  highlight: python
+  class: python3

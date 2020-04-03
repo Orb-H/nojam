@@ -9,8 +9,8 @@ regenerate: true
 {% assign exp = 0 %}
 {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
 {% for num in (0..30) %}
-    {% assign exp_tmp = docs | where: "solve_diff", num | size %}
-    {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
+{% assign exp_tmp = docs | where: "solve_diff", num | size %}
+{% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
 {% endfor %}
 푼 문제 수: **{{ docs.size }}**개, solved.ac 기준 경험치: **{{ exp }}** XP
 
@@ -36,6 +36,26 @@ regenerate: true
             <td class="diff_{{ diff[num].class }}"><div style="display:none;">{{ num | plus:10 }}</div>&#{{ num | minus: 1 | modulo: 5 | plus: 9312 }}; {{ diff[num].text }}</td>
             <td>{{ docs | where: "solve_diff", num | size }}</td>
             <td>{{ diff[num]. tot_prob }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</details>
+
+<details>
+<summary>사용 언어 별 통계</summary>
+<table id="prob_diff">
+    <thead>
+        <tr>
+            <th onclick="sortTable(0,'prob_diff')">사용 언어</th>
+            <th onclick="sortTable(1,'prob_diff')" class="num_col">푼 문제 수</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lang in site.data.languages %}
+        <tr>
+            <td class="lang_{{ lang[1].class }}">{{ lang[0] }}</td>
+            <td>{{ docs | where: "solve_lang", lang[0] | size }}</td>
         </tr>
         {% endfor %}
     </tbody>

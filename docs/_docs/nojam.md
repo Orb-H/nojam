@@ -32,7 +32,8 @@ regenerate: true
                 <tr>
                     <td>{{ item.solve_num }}</td>
                     <td><a href="{{ item.url | relative_url }}">{{ item.solve_name }}</a></td>
-                    <td>{{ item.solve_lang.name }}</td>
+                    {% assign lang = site.data.languages[item.solve_lang] %}
+                    <td class="lang_{{ lang.class }}">{{ lang.name }}</td>
                     {% assign diff = site.data.nojam_diff %}
                     {% assign num = item.solve_diff %}
                     <td class="diff_{{ diff[num].class }}"><div style="display: none;">{{ num | plus: 10 }}</div>&#{{ num | minus: 1 | modulo: 5 | plus: 9312 }}; {{ diff[num].text }}</td>

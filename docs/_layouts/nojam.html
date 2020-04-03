@@ -3,7 +3,11 @@ layout: default
 ---
 
 <a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
-<div align=right>{% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font>{% else %}<font color="#090">✔ Solved</font> at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>, with <b>{{ page.solve_lang.name }}</b>{% endif %}</div>
+<div align=right>{% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font>
+{% else %}<font color="#090">✔ Solved</font>
+{% if page.solve_date %} at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %}
+{% if page.solve_lang %}{% assign lang = site.data.languages[page.solve_lang] %} with <span class="lang_{{ lang.class }}">{{ lang.name }}</span>{% endif %}
+{% endif %}</div>
 {% assign diff = site.data.nojam_diff %}
 {% assign num = page.solve_diff %}
 <div class="diff_{{ diff[num].class }}">
@@ -19,6 +23,6 @@ layout: default
 
 {{ content }}
 
-<p>
-<a href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ page.solve_lang.extension }}">코드(Github)</a>{% if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
-</p>
+{% if page.solve_exclude == nil %}<p>
+<a href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}">코드(Github)</a>{% if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
+</p>{% endif %}

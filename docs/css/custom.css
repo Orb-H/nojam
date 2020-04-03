@@ -44,3 +44,28 @@ article a {
     color: #ff0062;
     font-weight: bold;
 }
+
+.lang_c {
+    color: #5c6bc0;
+    font-weight: bold;
+}
+
+.lang_cpp {
+    color: #659ad2;
+    font-weight: bold;
+}
+
+.lang_python3 {
+    color: #ffd43b;
+    font-weight: bold;
+}
+
+.lang_python2 {
+    color: #ffe873;
+    font-weight: bold;
+}
+
+.lang_java {
+    color: #ed8b00;
+    font-weight: bold;
+}
