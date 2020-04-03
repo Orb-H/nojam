@@ -69,3 +69,33 @@ article a {
     color: #ed8b00;
     font-weight: bold;
 }
+
+.lang_js {
+    color: #f0db4f;
+    font-weight: bold;
+}
+
+.lang_cs {
+    color: #a077db;
+    font-weight: bold;
+}
+
+.lang_php {
+    color: #787cb5;
+    font-weight: bold;
+}
+
+.lang_ruby {
+    color: #d51f06;
+    font-weight: bold;
+}
+
+.lang_kt {
+    color: #6b70fc;
+    font-weight: bold;
+}
+
+.lang_rust {
+    color: #000;
+    font-weight: bold;
+}

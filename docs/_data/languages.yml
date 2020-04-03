@@ -8,11 +8,31 @@
   extension: .cpp
   highlight: cpp
   class: cpp
+"C#":
+  name: C#
+  extension: .cs
+  highlight: cs
+  class: cs
 "Java":
   name: Java
   extension: .java
   highlight: java
   class: java
+"JavaScript":
+  name: JavaScript
+  extension: .js
+  highlight: javascript
+  class: js
+"Kotlin":
+  name: Kotlin
+  extension: .kt
+  highlight: kotlin
+  class: kt
+"PHP":
+  name: PHP
+  extension: .php
+  highlight: php
+  class: php
 "Python 2":
   name: Python 2
   extension: .py
@@ -23,3 +43,13 @@
   extension: .py
   highlight: python
   class: python3
+"Ruby":
+  name: Ruby
+  extension: .rb
+  highlight: ruby
+  class: ruby
+"Rust":
+  name: Rust
+  extension: .rs
+  highlight: rust
+  class: rust
