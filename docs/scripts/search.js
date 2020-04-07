@@ -1,5 +1,5 @@
 ---
-layout: null;
+layout: _
 ---
 var baseurl="{{ site.baseurl }}";
 
