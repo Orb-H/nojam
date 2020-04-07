@@ -15,7 +15,7 @@ regenerate: true
 푼 문제 수: **{{ docs.size }}**개, solved.ac 기준 경험치: **{{ exp }}** XP
 
 <details>
-<summary>난이도 별 통계</summary>
+<summary>난이도 통계</summary>
 <table id="prob_diff">
     <thead>
         <tr>
@@ -43,7 +43,7 @@ regenerate: true
 </details>
 
 <details>
-<summary>사용 언어 별 통계</summary>
+<summary>사용 언어 통계</summary>
 <table id="prob_diff">
     <thead>
         <tr>
@@ -63,7 +63,7 @@ regenerate: true
 </details>
 
 <details>
-<summary>백준 태그 별 통계</summary>
+<summary>백준 태그 통계</summary>
 <table id="prob_tag">
     <thead>
         <tr>
@@ -92,7 +92,7 @@ regenerate: true
 </details>
 
 <details>
-<summary>solved.ac 태그 별 통계</summary>
+<summary>solved.ac 태그 통계</summary>
 <table id="prob_solved_tag">
     <thead>
         <tr>
