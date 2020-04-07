@@ -19,7 +19,6 @@ function sortTable(n, id) {
 
     for (i = 1; i < rows.length - 1; i++) {
         if (so(rows[i].cells[n].textContent, rows[i + 1].cells[n].textContent) > 0) {
-            console.log(i + " " + rows[i].cells[n].textContent + " " + rows[i + 1].cells[n].textContent + " " + (rows[i].cells[n].textContent > rows[i + 1].cells[n].textContent));
             dir = 1;
             break;
         }
