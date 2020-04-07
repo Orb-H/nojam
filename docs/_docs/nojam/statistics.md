@@ -120,4 +120,23 @@ regenerate: true
 </table>
 </details>
 
-<script src="{{ site.baseurl }}/scripts/sort.js" charset="utf-8">
+---
+
+쿼리 검색: <input type="text" id="search" /> <button onclick="query_search()">검색</button>
+
+<table id="prob_search">
+    <thead>
+        <tr>
+            <th onclick="sortTable(0,'prob_search')" class="num_col">번호</th>
+            <th onclick="sortTable(1,'prob_search')">이름</th>
+            <th onclick="sortTable(2,'prob_search')">언어</th>
+            <th onclick="sortTable(3,'prob_search')">난이도</th>
+            <th onclick="sortTable(4,'prob_search')">태그</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script src="{{ site.baseurl }}/scripts/sort.js" charset="utf-8"></script>
+<script src="{{ site.baseurl }}/scripts/nojam_search.js" charset="utf-8"></script>
