@@ -44,11 +44,11 @@ regenerate: true
 
 <details>
 <summary>사용 언어 통계</summary>
-<table id="prob_diff">
+<table id="prob_lang">
     <thead>
         <tr>
-            <th onclick="sortTable(0,'prob_diff')">사용 언어</th>
-            <th onclick="sortTable(1,'prob_diff')" class="num_col">푼 문제 수</th>
+            <th onclick="sortTable(0,'prob_lang')">사용 언어</th>
+            <th onclick="sortTable(1,'prob_lang')" class="num_col">푼 문제 수</th>
         </tr>
     </thead>
     <tbody>
