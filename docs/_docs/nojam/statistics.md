@@ -33,7 +33,7 @@ regenerate: true
         {% assign diff = site.data.nojam_diff %}
         {% for num in (1..30) reversed %}
         <tr>
-            <td class="diff_{{ diff[num].class }}"><div style="display:none;">{{ num | plus:10 }}</div>&#{{ num | minus: 1 | modulo: 5 | plus: 9312 }}; {{ diff[num].text }}</td>
+            <td class="diff_{{ diff[num].class }}"><div style="display:none;">{{ num | plus:10 }}</div>{{ diff[num].sym_light }} {{ diff[num].text }}</td>
             <td>{{ docs | where: "solve_diff", num | size }}</td>
             <td>{{ diff[num]. tot_prob }}</td>
         </tr>

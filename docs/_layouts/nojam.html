@@ -11,7 +11,7 @@ layout: default
 {% assign diff = site.data.nojam_diff %}
 {% assign num = page.solve_diff %}
 <div class="diff_{{ diff[num].class }}">
-&#{{ num | minus: 1 | modulo: 5 | plus: 10102 }}; {{ diff[num].text }}
+{{ diff[num].sym_dark }} {{ diff[num].text }}
 {% unless page.solve_solved_not_set %}✅{% endunless %}
 </div>
 {% if page.solve_tag or page.solve_solved_tag %}<p>
