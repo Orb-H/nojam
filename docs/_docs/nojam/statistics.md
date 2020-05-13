@@ -26,7 +26,7 @@ regenerate: true
     </thead>
     <tbody>
         <tr>
-            <td class="diff_unrated"><div style="display:none;">31</div>&#65311; Unrated</td>
+            <td class="diff_unrated"><div style="display:none;">41</div>&#65311; Unrated</td>
             <td>{{ docs | where: "solve_diff", 0 | size }}</td>
             <td>6897</td>
         </tr>
