@@ -13,7 +13,7 @@ regenerate: true
 {% assign exp_tmp = docs | where: "solve_diff", num | size %}
 {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
 {% endfor %}
-푼 문제 수: **{{ docs.size }}**개, solved.ac 기준 경험치: **{{ exp }}** XP
+푼 문제 수: **{{ docs.size }}**개, 경험치: **{{ exp }}** XP
 {%- if docs.size < 10 -%}
 , 티어: <span class="diff_bronze">❺ Bronze V</span>
 {%- else -%}
