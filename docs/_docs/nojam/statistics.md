@@ -18,7 +18,7 @@ regenerate: true
 {% else %}
 {% for num in (2..29) %}
 {% assign num2 = num | minus: 1}
-{% if site.data.nojam_tier_exp[num] < exp and site.data.nojam_tier_exp[num2] > exp %}
+{% if site.data.nojam_tier_exp[num] <= exp and site.data.nojam_tier_exp[num2] > exp %}
 , solved.ac 티어: <span class="diff_{{ diff[num].class }}">{{ diff[num].sym_dark }} {{ diff[num].text }}</span>
 {% endif %}
 {% endfor %}
