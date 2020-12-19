@@ -13,6 +13,17 @@ regenerate: true
 {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
 {% endfor %}
 푼 문제 수: **{{ docs.size }}**개, solved.ac 기준 경험치: **{{ exp }}** XP
+{% if docs.size < 10 %}, solved.ac 티어: <span class="diff_bronze">❺ Bronze V</span>
+{% else %}
+{% for num in (2..29) %}
+{% if site.data.nojam_tier_exp[num] < exp and site.data.nojam_tier_exp[num-1] > exp %}
+, solved.ac 티어: <span class="diff_{{ diff[num].class }}">{{ diff[num].sym_dark }} {{ diff[num].text }}</span>
+{% endif %}
+{% endfor %}
+{% if site.data.nojam_tier_exp[1] < exp %}
+, solved.ac 티어: <span class="diff_{{ diff[1].class }}">{{ diff[1].sym_dark }} {{ diff[1].text }}</span>
+{% endif %}
+{% endif %}
 
 <details>
 <summary>난이도 통계</summary>
