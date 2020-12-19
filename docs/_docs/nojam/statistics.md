@@ -6,6 +6,7 @@ regenerate: true
 
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 2020-03-24 00:00 기준입니다.
 
+{% assign diff = site.data.nojam_diff %}
 {% assign exp = 0 %}
 {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
 {% for num in (0..30) %}
@@ -13,17 +14,17 @@ regenerate: true
 {% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
 {% endfor %}
 푼 문제 수: **{{ docs.size }}**개, solved.ac 기준 경험치: **{{ exp }}** XP
-{% if docs.size < 10 %}
-, solved.ac 티어: <span class="diff_bronze">❺ Bronze V</span>
-{% else %}
-{% for num in (2..29) %}
-{% assign num2 = num | minus: 1}
-{% if site.data.nojam_tier_exp[num] <= exp and site.data.nojam_tier_exp[num2] > exp %}
-, solved.ac 티어: <span class="diff_{{ diff[num].class }}">{{ diff[num].sym_dark }} {{ diff[num].text }}</span>
-{% endif %}
-{% endfor %}
-{% if site.data.nojam_tier_exp[1] < exp %}
-, solved.ac 티어: <span class="diff_{{ diff[1].class }}">{{ diff[1].sym_dark }} {{ diff[1].text }}</span>
+{%- if docs.size < 10 -%}
+, 티어: <span class="diff_bronze">❺ Bronze V</span>
+{%- else -%}
+{%- for num in (2..29) -%}
+{%- assign num2 = num | minus: 1 -%}
+{%- if site.data.nojam_tier_exp[num] <= exp and site.data.nojam_tier_exp[num2] > exp -%}
+, 티어: <span class="diff_{{ diff[num].class }}">{{ diff[num].sym_dark }} {{ diff[num].text }}</span>
+{%- endif -%}
+{%- endfor -%}
+{%- if site.data.nojam_tier_exp[1] < exp -%}
+, 티어: <span class="diff_{{ diff[1].class }}">{{ diff[1].sym_dark }} {{ diff[1].text }}</span>
 {% endif %}
 {% endif %}
 
@@ -43,7 +44,6 @@ regenerate: true
             <td>{{ docs | where: "solve_diff", 0 | size }}</td>
             <td>6897</td>
         </tr>
-        {% assign diff = site.data.nojam_diff %}
         {% for num in (1..30) reversed %}
         <tr>
             <td class="diff_{{ diff[num].class }}"><div style="display:none;">{{ num | plus:10 }}</div>{{ diff[num].sym_light }} {{ diff[num].text }}</td>
