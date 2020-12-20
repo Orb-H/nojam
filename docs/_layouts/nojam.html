@@ -59,9 +59,9 @@ layout: default
     // tag
     var tag_span = document.getElementById("nojam_tags");
 
-    for (tag in data.tags) {
+    for (i = 0; i < data.tags.length; i++) {
       tag_span.innerHTML +=
-        "<code>" + data.tags[tag].full_name_ko + "</code>&nbsp;";
+        "<code>" + data.tags[i].full_name_ko + "</code>&nbsp;";
     }
   };
 </script>
