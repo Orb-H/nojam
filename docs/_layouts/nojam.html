@@ -3,24 +3,8 @@ layout: default
 ---
 
 <script>
-  var diffs = [
-    "unrated",
-    "bronze",
-    "silver",
-    "gold",
-    "platinum",
-    "diamond",
-    "ruby"
-  ];
-  var diff_names = [
-    "Unrated",
-    "Bronze",
-    "Silver",
-    "Gold",
-    "Platinum",
-    "Diamond",
-    "Ruby"
-  ];
+  var diffs = ["bronze", "silver", "gold", "platinum", "diamond", "ruby"];
+  var diff_names = ["Bronze", "Silver", "Gold", "Platinum", "Diamond", "Ruby"];
   var roman = ["V", "IV", "III", "II", "I"];
 
   window.onload = async function () {
@@ -42,12 +26,12 @@ layout: default
       diff_span.innerHTML = "？ Unrated";
     } else {
       diff_span.classList.toggle(
-        "diff_" + diffs[Math.floor((data.level + 4) / 5)]
+        "diff_" + diffs[Math.floor((data.level - 1) / 5)]
       );
       diff_span.innerHTML =
         String.fromCharCode(10101 + (5 - ((data.level - 1) % 5))) + // 10102 ~ 10106
         " " +
-        diff_names[Math.floor((data.level + 4) / 5)] +
+        diff_names[Math.floor((data.level - 1) / 5)] +
         " " +
         roman[(data.level - 1) % 5];
     }
