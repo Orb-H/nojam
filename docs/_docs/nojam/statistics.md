@@ -95,7 +95,7 @@ regenerate: true
         {% for lang in site.data.languages %}
         <tr>
             <td class="lang_{{ lang[1].class }}">{{ lang[0] }}</td>
-            <td>{{ docs | where: "solve_lang", lang[0] | size }}</td>
+            <td>{{ site.docs | where: "solve_lang", lang[0] | size }}</td>
         </tr>
         {% endfor %}
     </tbody>
