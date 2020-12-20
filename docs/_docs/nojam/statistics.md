@@ -6,27 +6,9 @@ regenerate: true
 
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 2020-03-24 00:00 기준입니다.
 
-{% assign diff = site.data.nojam_diff %}
-{% assign exp = 0 %}
-{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
-{% for num in (0..30) %}
-{% assign exp_tmp = docs | where: "solve_diff", num | size %}
-{% assign exp = exp_tmp | times: site.data.nojam_exp[num] | plus: exp %}
-{% endfor %}
-푼 문제 수: **{{ docs.size }}**개, 경험치: **{{ exp }}** XP
-{%- if docs.size < 10 -%}
-, 티어: <span class="diff_bronze">❺ Bronze V</span>
-{%- else -%}
-{%- for num in (2..29) -%}
-{%- assign num2 = num | minus: 1 -%}
-{%- if site.data.nojam_tier_exp[num] <= exp and site.data.nojam_tier_exp[num2] > exp -%}
-, 티어: <span class="diff_{{ diff[num].class }}">{{ diff[num].sym_dark }} {{ diff[num].text }}</span>
-{%- endif -%}
-{%- endfor -%}
-{%- if site.data.nojam_tier_exp[1] < exp -%}
-, 티어: <span class="diff_{{ diff[1].class }}">{{ diff[1].sym_dark }} {{ diff[1].text }}</span>
-{% endif %}
-{% endif %}
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
+<br/><small>(↑ 크윽... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small>
 
 <details>
 <summary>난이도 통계</summary>
