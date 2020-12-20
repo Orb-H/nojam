@@ -60,6 +60,8 @@ regenerate: true
     }
 </script>
 
+{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
+
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 ~~2020-03-24 00:00 기준입니다.~~실시간입니다.
 
 [![Solved.ac
@@ -95,7 +97,7 @@ regenerate: true
         {% for lang in site.data.languages %}
         <tr>
             <td class="lang_{{ lang[1].class }}">{{ lang[0] }}</td>
-            <td>{{ site.docs | where: "solve_lang", lang[0] | size }}</td>
+            <td>{{ docs | where: "solve_lang", lang[0] | size }}</td>
         </tr>
         {% endfor %}
     </tbody>
