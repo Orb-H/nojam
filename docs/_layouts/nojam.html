@@ -2,27 +2,88 @@
 layout: default
 ---
 
+<script>
+  var diffs = [
+    "unrated",
+    "bronze",
+    "silver",
+    "gold",
+    "platinum",
+    "diamond",
+    "ruby"
+  ];
+  var diff_names = [
+    "Unrated",
+    "Bronze",
+    "Silver",
+    "Gold",
+    "Platinum",
+    "Diamond",
+    "Ruby"
+  ];
+  var roman = ["V", "IV", "III", "II", "I"];
+
+  window.onload = async function () {
+    var data = await (
+      await fetch("https://api.solved.ac/v2/problems?id={{ page.solve_num }}")
+    ).json();
+
+    data = data.result.problems[0];
+
+    // title
+
+    // difficulty
+    var diff_span = document.getElementById("nojam_diff");
+
+    if (data.level === 0) {
+      diff_span.classList.toggle("diff_unrated");
+      diff_span.innerHTML = "？ Unrated";
+    } else {
+      diff_span.classList.toggle("diff_" + diffs[Math.floor((level + 4) / 5)]);
+      diff_span.innerHTML =
+        String.fromCharCode(10101 + (data.level % 5)) +
+        " " +
+        diff_names[Math.floor((level + 4) / 5)] +
+        " " +
+        roman[data.level % 5];
+    }
+
+    if (data.level_locked === 1) {
+      document.getElementById("nojam_diff_fixed").style["display"] = "inline";
+    }
+
+    // tag
+    var tag_span = document.getElementById("nojam_tags");
+
+    for (tag in data.tags) {
+      tag_span.innerHTML += "<code>" + tag + "</code>";
+    }
+  };
+</script>
+
 <a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
-<div align=right>{% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font>
-{% else %}<font color="#090">✔ Solved</font>
-{% if page.solve_date %} at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %}
-{% if page.solve_lang %}{% assign lang = site.data.languages[page.solve_lang] %} with <span class="lang_{{ lang.class }}">{{ lang.name }}</span>{% endif %}
-{% endif %}</div>
-{% assign diff = site.data.nojam_diff %}
-{% assign num = page.solve_diff %}
-<div class="diff_{{ diff[num].class }}">
-{{ diff[num].sym_dark }} {{ diff[num].text }}
-{% unless page.solve_solved_not_set %}✅{% endunless %}
+<div align="right">
+  {% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font> {%
+  else %}<font color="#090">✔ Solved</font> {% if page.solve_date %} at
+  <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %} {% if
+  page.solve_lang %}{% assign lang = site.data.languages[page.solve_lang] %}
+  with <span class="lang_{{ lang.class }}">{{ lang.name }}</span>{% endif %} {%
+  endif %}
 </div>
-{% if page.solve_tag or page.solve_solved_tag %}<p>
-{% if page.solve_tag %}백준 태그: {% for tag in page.solve_tag %}<code>{{ tag }}</code> {% endfor %}<br/>{% endif %}
-{% if page.solve_solved_tag %}solved.ac 태그: {% for tag in page.solve_solved_tag %}<code>{{ tag }}</code> {% endfor %}{% endif %}
-</p>{% endif %}
+{% assign diff = site.data.nojam_diff %} {% assign num = page.solve_diff %}
+<div>
+  <span id="nojam_diff"></span>
+  <span id="nojam_diff_fixed" style="display: none;">✅</span>
+</div>
+<p>태그: <span id="nojam_tags"></span><br /></p>
+<p></p>
+
+{{ content }} {% if page.solve_exclude == nil %}
 <p>
+  <a
+    href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}"
+    >코드(Github)</a
+  >{% if page.solve_share %} /
+  <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
 </p>
-
-{{ content }}
-
-{% if page.solve_exclude == nil %}<p>
-<a href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}">코드(Github)</a>{% if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
-</p>{% endif %}
+{% endif %}
