@@ -41,11 +41,13 @@ layout: default
       diff_span.classList.toggle("diff_unrated");
       diff_span.innerHTML = "？ Unrated";
     } else {
-      diff_span.classList.toggle("diff_" + diffs[Math.floor((level + 4) / 5)]);
+      diff_span.classList.toggle(
+        "diff_" + diffs[Math.floor((data.level + 4) / 5)]
+      );
       diff_span.innerHTML =
         String.fromCharCode(10101 + (data.level % 5)) +
         " " +
-        diff_names[Math.floor((level + 4) / 5)] +
+        diff_names[Math.floor((data.level + 4) / 5)] +
         " " +
         roman[data.level % 5];
     }
