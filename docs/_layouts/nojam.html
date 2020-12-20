@@ -45,7 +45,7 @@ layout: default
         "diff_" + diffs[Math.floor((data.level + 4) / 5)]
       );
       diff_span.innerHTML =
-        String.fromCharCode(10101 + (data.level % 5)) +
+        String.fromCharCode(10101 + (6 - ((data.level - 1) % 5))) +
         " " +
         diff_names[Math.floor((data.level + 4) / 5)] +
         " " +
@@ -60,7 +60,7 @@ layout: default
     var tag_span = document.getElementById("nojam_tags");
 
     for (tag in data.tags) {
-      tag_span.innerHTML += "<code>" + tag + "</code>";
+      tag_span.innerHTML += "<code>" + tag.full_name_ko + "</code>";
     }
   };
 </script>
