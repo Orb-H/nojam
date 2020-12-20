@@ -68,6 +68,8 @@ regenerate: true
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
 <br/><small>(↑ 크흑... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small>
 
+이 사이트에 등록된 맞춘 문제 개수: {{ docs.size }}개
+
 <details>
 <summary>난이도 통계</summary>
 <table id="prob_diff">
