@@ -25,7 +25,7 @@ layout: default
 
   window.onload = async function () {
     var data = await (
-      await fetch("https://api.solved.ac/v2/problems?id={{ page.solve_num }}")
+      await fetch("https://api.solved.ac/v2/show.json?id={{ page.solve_num }}")
     ).json();
 
     data = data.result.problems[0];
