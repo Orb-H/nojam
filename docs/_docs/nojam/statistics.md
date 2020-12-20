@@ -107,9 +107,9 @@ regenerate: true
 <table id="prob_tag">
     <thead>
         <tr>
-            <th onclick="sortTable(0,'prob_solved_tag')">태그</th>
-            <th onclick="sortTable(1,'prob_solved_tag')" class="num_col">푼 문제 수</th>
-            <th onclick="sortTable(2,'prob_solved_tag')" class="num_col">얻은 경험치</th>
+            <th onclick="sortTable(0,'prob_tag')">태그</th>
+            <th onclick="sortTable(1,'prob_tag')" class="num_col">푼 문제 수</th>
+            <th onclick="sortTable(2,'prob_tag')" class="num_col">얻은 경험치</th>
         </tr>
     </thead>
     <tbody>
