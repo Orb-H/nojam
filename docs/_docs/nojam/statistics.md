@@ -37,7 +37,7 @@ regenerate: true
             if(diff_data[i].level === 0){
                 row.insertCell(-1).innerHTML = '<div class="diff_unrated"><span style="display:none;">41</span>&#65311; Unrated</div>';
             }else{
-                row.insertCell(-1).innerHTML = '<div class="diff_' + diffs[Math.floor((data.level - 1) / 5)] + '"><span style="display:none;">' + (41 - diff_data[i].level) + '</span> ' + String.fromCharCode(10101 + (5 - ((data.level - 1) % 5))) + ' ' + diff_names[Math.floor((data.level - 1) / 5)] + ' ' + roman[(data.level - 1) % 5]; + '</div>';
+                row.insertCell(-1).innerHTML = '<div class="diff_' + diffs[Math.floor((data.level - 1) / 5)] + '"><span style="display:none;">' + (41 - diff_data[i].level) + '</span> ' + String.fromCharCode(9311 + (5 - ((data.level - 1) % 5))) + ' ' + diff_names[Math.floor((data.level - 1) / 5)] + ' ' + roman[(data.level - 1) % 5]; + '</div>';
             }
             row.insertCell(-1).innerHTML = diff_data[i].problems;
             row.insertCell(-1).innerHTML = diff_data[i].solved;
