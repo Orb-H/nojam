@@ -8,7 +8,7 @@ regenerate: true
 
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
-<br/><small>(↑ 크윽... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small>
+<br/><small>(↑ 크흑... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small>
 
 <details>
 <summary>난이도 통계</summary>
