@@ -4,7 +4,7 @@ regenerate: true
 ---
 
 var db = JSON.parse(
-    '{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}[{% for doc in docs %}{"num":{{ doc.solve_num }},"name":"{{ doc.solve_name }}","lang":"{{ doc.solve_lang }}","diff":{{ doc.solve_diff }},"date":"{{ doc.solve_date }}","share":"{{ doc.solve_share }}",{% endfor %} null],"exclude":{% if doc.solve_exclude != nil %}true{% else %}false {% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}]'
+    '{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}[{% for doc in docs %}{"num":{{ doc.solve_num }},"name":"{{ doc.solve_name }}","lang":"{{ doc.solve_lang }}","diff":{{ doc.solve_diff }},"date":"{{ doc.solve_date }}","share":"{{ doc.solve_share }}", null],"exclude":{% if doc.solve_exclude != nil %}true{% else %}false {% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}]'
 );
 var lang_db = JSON.parse(
     '{ {% for lang in site.data.languages %}"{{ lang[0] }}":{ {% for item in lang[1] %}"{{ item[0] }}":"{{ item[1] }}"{% unless forloop.last %},{% endunless %}{% endfor %}}{% unless forloop.last %},{% endunless %}{% endfor %}}'
