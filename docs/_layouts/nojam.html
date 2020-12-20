@@ -61,7 +61,9 @@ layout: default
 
     for (i = 0; i < data.tags.length; i++) {
       tag_span.innerHTML +=
-        "<code>" + data.tags[i].full_name_ko + "</code>&nbsp;";
+        "<code class='language-plaintext highlighter-rouge'>" +
+        data.tags[i].full_name_ko +
+        "</code>&nbsp;";
     }
   };
 </script>
