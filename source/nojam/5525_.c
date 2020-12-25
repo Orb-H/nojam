@@ -1,0 +1,1 @@
+a,b,c,v;main(n){for(scanf("%d%d ",&n);b=getchar()&5;a=b)c+=(v*=a!=b,++v)>2*n&&b-5;printf("%d",c);}t
