@@ -73,7 +73,14 @@ layout: default
 <br />
 <p></p>
 
-{{ content }} {% if page.solve_exclude == nil %}
+{{ content }} {% if page.solve_step %}
+<p>
+  백준의 단계별로 풀어보기
+  <a href="https://www.acmicpc.net/step/{{ page.solve_step[0] }}"
+    >{{ page.solve_step[0] }}단계 {{ page.solve_step[1] }}</a
+  >의 {{ page.solve_step[2] }}번 문제입니다.
+</p>
+{% endif %} {% if page.solve_exclude == nil %}
 <p>
   <a
     href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}"
