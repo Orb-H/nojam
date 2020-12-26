@@ -61,7 +61,6 @@ layout: default
   with <span class="lang_{{ lang.class }}">{{ lang.name }}</span>{% endif %} {%
   endif %}
 </div>
-{% assign diff = site.data.nojam_diff %} {% assign num = page.solve_diff %}
 <div>
   <span id="nojam_diff"></span>
   <span id="nojam_diff_fixed" style="display: none;">✅</span>
@@ -75,10 +74,10 @@ layout: default
 
 {{ content }} {% if page.solve_step %}
 <p>
-  백준의 단계별로 풀어보기
+  백준의 단계별로 풀어보기 {{ page.solve_step[0] }}단계
   <a href="https://www.acmicpc.net/step/{{ page.solve_step[0] }}"
-    >{{ page.solve_step[0] }}단계 {{ page.solve_step[1] }}</a
-  >의 {{ page.solve_step[2] }}번 문제입니다.
+    ><b>{{ site.data.nojam_step_name[page.solve_step[0]] }}</b></a
+  >의 <b>{{ page.solve_step[1] }}번</b> 문제입니다.
 </p>
 {% endif %} {% if page.solve_exclude == nil %}
 <p>

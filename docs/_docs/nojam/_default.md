@@ -11,7 +11,6 @@ solve_date: # Any date-format may be available; which liquid can understand
 solve_share: # Sharing code in acmicpc.net, if you want
 solve_step: # Remove if this problem is not included in 단계별로 풀어보기
   - 1 # Step number in 'https://www.acmicpc.net/step'
-  - 입출력과 사칙연산 # Step name
   - 1 # Problem number in each step in 'https://www.acmicpc.net/step'
 ---
 
