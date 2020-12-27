@@ -1,49 +1,97 @@
 -
-- 입출력과 사칙연산
-- if문
-- for문
-- while문
-- 1차원 배열
-- 함수
-- 문자열
-- 수학 1
-- 수학 2
-- 재귀
-- 브루트 포스
-- 정렬
-- 백트래킹
-- 동적 계획법 1
-- 그리디 알고리즘
-- 수학 3
-- 스택
-- 큐, 덱
-- 분할 정복
-- 이분 탐색
-- 우선순위 큐
-- 동적 계획법 2
-- DFS와 BFS
-- 최단 경로
-- 동적 계획법 3
-- 동적 계획법과 최단거리 역추적
-- 투 포인터
-- 트리
-- 유니온 파인드
-- 최소 신장 트리
-- 트리에서의 동적 계획법
-- 수학 4
-- 문자열 알고리즘 1
-- 위상 정렬
-- 최소 공통 조상
-- 강한 연결 요소
-- 세그먼트 트리
-- 스위핑
-- 동적 계획법 4
-- 컨벡스 헐
-- 이분 매칭
-- 네트워크 플로우
-- MCMF
-- 수학 5
-- 문자열 알고리즘 2
-- 어려운 구간 쿼리
-- 동적 계획법 최적화
-- 매우 어려운 자료구조와 알고리즘
+- name: 입출력과 사칙연산
+  addr: 1
+- name: if문
+  addr: 4
+- name: for문
+  addr: 3
+- name: while문
+  addr: 2
+- name: 1차원 배열
+  addr: 6
+- name: 함수
+  addr: 5
+- name: 문자열
+  addr: 7
+- name: 수학 1
+  addr: 8
+- name: 수학 2
+  addr: 10
+- name: 재귀
+  addr: 19
+- name: 브루트 포스
+  addr: 22
+- name: 정렬
+  addr: 9
+- name: 백트래킹
+  addr: 34
+- name: 동적 계획법 1
+  addr: 16
+- name: 그리디 알고리즘
+  addr: 33
+- name: 수학 3
+  addr: 18
+- name: 스택
+  addr: 11
+- name: 큐, 덱
+  addr: 12
+- name: 분할 정복
+  addr: 20
+- name: 이분 탐색
+  addr: 29
+- name: 우선순위 큐
+  addr: 13
+- name: 동적 계획법 2
+  addr: 17
+- name: DFS와 BFS
+  addr: 24
+- name: 최단 경로
+  addr: 26
+- name: 동적 계획법 3
+  addr: 31
+- name: 동적 계획법과 최단거리 역추적
+  addr: 41
+- name: 투 포인터
+  addr: 59
+- name: 트리
+  addr: 23
+- name: 유니온 파인드
+  addr: 14
+- name: 최소 신장 트리
+  addr: 15
+- name: 트리에서의 동적 계획법
+  addr: 21
+- name: 수학 4
+  addr: 45
+- name: 문자열 알고리즘 1
+  addr: 27
+- name: 위상 정렬
+  addr: 25
+- name: 최소 공통 조상
+  addr: 40
+- name: 강한 연결 요소
+  addr: 43
+- name: 세그먼트 트리
+  addr: 35
+- name: 스위핑
+  addr: 39
+- name: 동적 계획법 4
+  addr: 47
+- name: 컨벡스 헐
+  addr: 37
+- name: 이분 매칭
+  addr: 38
+- name: 네트워크 플로우
+  addr: 36
+- name: MCMF
+  addr: 42
+- name: 수학 5
+  addr: 44
+- name: 문자열 알고리즘 2
+  addr: 28
+- name: 어려운 구간 쿼리
+  addr: 30
+- name: 동적 계획법 최적화
+  addr: 32
+- name: 매우 어려운 자료구조와 알고리즘
+  addr: 46

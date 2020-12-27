@@ -73,7 +73,7 @@ layout: default
 {% assign num = page.solve_step[0] %}
 <p>
   백준의 단계별로 풀어보기 {{ num }}단계
-  <a href="https://www.acmicpc.net/step/{{ num }}">{{ site.data.nojam_step_name[num] }}</a>의 <b>{{ page.solve_step[1]
+  <a href="https://www.acmicpc.net/step/{{ site.data.nojam_step_name[num].addr }}">{{ site.data.nojam_step_name[num].name }}</a>의 <b>{{ page.solve_step[1]
     }}번</b> 문제입니다.
 </p>
 {% endif %}
