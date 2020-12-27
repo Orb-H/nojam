@@ -29,7 +29,7 @@ layout: default
         "diff_" + diffs[Math.floor((data.level - 1) / 5)]
       );
       diff_span.innerHTML =
-        String.fromCharCode(10101 + (5 - ((data.level - 1) % 5))) + // 10102 ~ 10106
+        String.fromCharCode(9311 + (5 - ((data.level - 1) % 5))) + // 10102 ~ 10106
         " " +
         diff_names[Math.floor((data.level - 1) / 5)] +
         " " +
@@ -53,13 +53,13 @@ layout: default
 </script>
 
 <a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
-<div align="right">
+<div align="right" style="font-family:NanumSquare">
   {% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font> {% else %}<font color="#090">✔ Solved</font>
   {% if page.solve_date %} at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %} {% if page.solve_lang
   %}{% assign lang = site.data.languages[page.solve_lang] %} with <span class="lang_{{ lang.class }}">{{ lang.name
     }}</span>{% endif %} {% endif %}</div>
 <div>
-  <span id="nojam_diff"></span>
+  <span id="nojam_diff" style="font-family:NanumSquare"></span>
   <span id="nojam_diff_fixed" style="display: none;">✅</span>
 </div>
 <div>
