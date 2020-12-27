@@ -64,8 +64,16 @@ layout: default
   태그:
   <p style="display: inline;" id="nojam_tags"></p>
 </div>
-<br />
-<p></p>
+{% for class in site.data.nojam_solved_class %}
+{% if class.problems_normal contains page.solve_num or class.problems_ess contains page.solve_num %}
+<p>
+  <code
+    style="background-color:#{{ class.fg }};padding:4px 6px"><b><a style="color:#{{ class.bg }};font-family:NanumSquare" href="https://solved.ac/class/{{ forloop.index }}" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#{{ class.bg }}'">CLASS {{ forloop.index }}</a></b></code>{%
+  if class.problems_ess contains page.solve_num %} <code style="background-color:orange;color:white;">ESSENTIAL</code>{%
+  endif %}
+</p>
+{% endif %}
+{% endfor %}
 
 {{ content }}
 
@@ -89,14 +97,6 @@ layout: default
 <p> 백준의 단계별로 풀어보기 {{ num1 }}단계 <a href="https://www.acmicpc.net/step/{{ addr }}">{{ name }}</a>의 <b>{{ num2 }}번</b>
   문제입니다.</p>
 {% endif %}
-{% for class in site.data.nojam_solved_class %}
-{% if class.problems_normal contains page.solve_num or class.problems_ess contains page.solve_num %}
-<p> solved.ac의 <a href="https://solved.ac/class/{{ forloop.index }}"
-    style="color:#{{ class.bg }};background-color:#{{ class.fg }};padding:4px 6px;font-family:NanumSquare"><b>CLASS {{
-      forloop.index }}</b></a> 에 속한 {% if class.problems_ess contains page.solve_num %}<code
-    style="background-color:orange;color:white;">ESSENTIAL</code> {% endif %}문제입니다.</p>
-{% endif %}
-{% endfor %}
 <h4>소스 코드</h4>
 {% if page.solve_detail != nil %}
 <p>
