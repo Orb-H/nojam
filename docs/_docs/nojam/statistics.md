@@ -23,39 +23,41 @@ regenerate: true
     ];
     var roman = ["V", "IV", "III", "II", "I"];
 
-    window.onload = async function(){
-        // difficulty
-        var diff_data = await(await fetch("https://api.solved.ac/v2/users/problem_stats.json?id=orb_h")).json();
-        var prob_diff = document.getElementById("prob_diff").children[1];
+    if (document.location.href.indexOf("orb-h.github.io") > -1) {
+        window.onload = async function(){
+            // difficulty
+            var diff_data = await(await fetch("https://api.solved.ac/v2/users/problem_stats.json?id=orb_h")).json();
+            var prob_diff = document.getElementById("prob_diff").children[1];
 
-        diff_data = diff_data.result;
+            diff_data = diff_data.result;
 
-        for(i = 0; i < diff_data.length; i++){
-            var row = prob_diff.insertRow(-1);
-            var data = diff_data[i];
+            for(i = 0; i < diff_data.length; i++){
+                var row = prob_diff.insertRow(-1);
+                var data = diff_data[i];
 
-            if(diff_data[i].level === 0){
-                row.insertCell(-1).innerHTML = '<div class="diff_unrated"><span style="display:none;">41</span>&#65311; Unrated</div>';
-            }else{
-                row.insertCell(-1).innerHTML = '<div class="diff_' + diffs[Math.floor((data.level - 1) / 5)] + '"><span style="display:none;">' + (41 - diff_data[i].level) + '</span> ' + String.fromCharCode(9311 + (5 - ((data.level - 1) % 5))) + ' ' + diff_names[Math.floor((data.level - 1) / 5)] + ' ' + roman[(data.level - 1) % 5]; + '</div>';
+                if(diff_data[i].level === 0){
+                    row.insertCell(-1).innerHTML = '<div class="diff_unrated"><span style="display:none;">41</span>&#65311; Unrated</div>';
+                }else{
+                    row.insertCell(-1).innerHTML = '<div class="diff_' + diffs[Math.floor((data.level - 1) / 5)] + '"><span style="display:none;">' + (41 - diff_data[i].level) + '</span> ' + String.fromCharCode(9311 + (5 - ((data.level - 1) % 5))) + ' ' + diff_names[Math.floor((data.level - 1) / 5)] + ' ' + roman[(data.level - 1) % 5]; + '</div>';
+                }
+                row.insertCell(-1).innerHTML = diff_data[i].problems;
+                row.insertCell(-1).innerHTML = diff_data[i].solved;
+                row.insertCell(-1).innerHTML = diff_data[i].solved_exp_sum;
             }
-            row.insertCell(-1).innerHTML = diff_data[i].problems;
-            row.insertCell(-1).innerHTML = diff_data[i].solved;
-            row.insertCell(-1).innerHTML = diff_data[i].solved_exp_sum;
-        }
 
-        // tag
-        var tag_data = await(await fetch("https://api.solved.ac/v2/users/top_tags.json?id=orb_h")).json();
-        var prob_tag = document.getElementById("prob_tag").children[1];
+            // tag
+            var tag_data = await(await fetch("https://api.solved.ac/v2/users/top_tags.json?id=orb_h")).json();
+            var prob_tag = document.getElementById("prob_tag").children[1];
 
-        tag_data = tag_data.result;
+            tag_data = tag_data.result;
 
-        for(i = 0; i < tag_data.length; i++){
-            var row = prob_tag.insertRow(-1);
+            for(i = 0; i < tag_data.length; i++){
+                var row = prob_tag.insertRow(-1);
 
-            row.insertCell(-1).innerHTML = tag_data[i].full_name_ko;
-            row.insertCell(-1).innerHTML = tag_data[i].solved;
-            row.insertCell(-1).innerHTML = tag_data[i].solved_exp_sum;
+                row.insertCell(-1).innerHTML = tag_data[i].full_name_ko;
+                row.insertCell(-1).innerHTML = tag_data[i].solved;
+                row.insertCell(-1).innerHTML = tag_data[i].solved_exp_sum;
+            }
         }
     }
 </script>

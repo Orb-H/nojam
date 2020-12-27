@@ -7,47 +7,49 @@ layout: default
   var diff_names = ["Bronze", "Silver", "Gold", "Platinum", "Diamond", "Ruby"];
   var roman = ["V", "IV", "III", "II", "I"];
 
-  window.onload = async function () {
-    var data = await (
-      await fetch(
-        "https://api.solved.ac/v2/problems/show.json?id={{ page.solve_num }}"
-      )
-    ).json();
+  if (document.location.href.indexOf("orb-h.github.io") > -1) {
+    window.onload = async function () {
+      var data = await (
+        await fetch(
+          "https://api.solved.ac/v2/problems/show.json?id={{ page.solve_num }}"
+        )
+      ).json();
 
-    data = data.result.problems[0];
+      data = data.result.problems[0];
 
-    // title
+      // title
 
-    // difficulty
-    var diff_span = document.getElementById("nojam_diff");
+      // difficulty
+      var diff_span = document.getElementById("nojam_diff");
 
-    if (data.level === 0) {
-      diff_span.classList.toggle("diff_unrated");
-      diff_span.innerHTML = "？ Unrated";
-    } else {
-      diff_span.classList.toggle(
-        "diff_" + diffs[Math.floor((data.level - 1) / 5)]
-      );
-      diff_span.innerHTML =
-        String.fromCharCode(9311 + (5 - ((data.level - 1) % 5))) + // 10102 ~ 10106
-        " " +
-        diff_names[Math.floor((data.level - 1) / 5)] +
-        " " +
-        roman[(data.level - 1) % 5];
-    }
+      if (data.level === 0) {
+        diff_span.classList.toggle("diff_unrated");
+        diff_span.innerHTML = "？ Unrated";
+      } else {
+        diff_span.classList.toggle(
+          "diff_" + diffs[Math.floor((data.level - 1) / 5)]
+        );
+        diff_span.innerHTML =
+          String.fromCharCode(9311 + (5 - ((data.level - 1) % 5))) + // 10102 ~ 10106
+          " " +
+          diff_names[Math.floor((data.level - 1) / 5)] +
+          " " +
+          roman[(data.level - 1) % 5];
+      }
 
-    if (data.level_locked === 1) {
-      document.getElementById("nojam_diff_fixed").style["display"] = "inline";
-    }
+      if (data.level_locked === 1) {
+        document.getElementById("nojam_diff_fixed").style["display"] = "inline";
+      }
 
-    // tag
-    var tag_span = document.getElementById("nojam_tags");
+      // tag
+      var tag_span = document.getElementById("nojam_tags");
 
-    for (i = 0; i < data.tags.length; i++) {
-      tag_span.innerHTML +=
-        "<code class='language-plaintext highlighter-rouge'>" +
-        data.tags[i].full_name_ko +
-        "</code>&nbsp;";
+      for (i = 0; i < data.tags.length; i++) {
+        tag_span.innerHTML +=
+          "<code class='language-plaintext highlighter-rouge'>" +
+          data.tags[i].full_name_ko +
+          "</code>&nbsp;";
+      }
     }
   };
 </script>
