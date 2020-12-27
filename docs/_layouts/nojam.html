@@ -98,6 +98,38 @@ layout: default
 {% endif %}
 {% endfor %}
 <h4>소스 코드</h4>
+{% if page.solve_detail != nil %}
+<p>
+<table>
+  <thead>
+    <tr>
+      <th>언어</th>
+      <th>비고</th>
+      <th>코드</th>
+      <th>시간</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for info in page.solve_detail %}
+    <tr>
+      {% assign lang = site.data.languages[info.solve_lang] %}
+      <td><span class="lang_{{ lang.class }}">{{ info.solve_lang }}</span></td>
+      <td>{% if info.solve_name %}{{ info.solve_name }}{% endif %}</td>
+      <td>
+        <a
+          href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ lang.extension }}">코드(Github)</a>
+        {% if info.solve_share %} / <a href="http://boj.kr/{{ info.solve_share }}">코드(백준)</a>{% endif %}
+      </td>
+      <td>
+        {% if info.solve_date %}{{ info.solve_date | date: "%Y-%m-%d %H:%M:%S" }}{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</p>
+{% else %}
 {% if page.solve_exclude == nil %}
 <p>
 <table>
@@ -124,6 +156,7 @@ layout: default
   </tbody>
 </table>
 </p>
+{% endif %}
 {% endif %}
 
 <div id="disqus_thread"></div>
