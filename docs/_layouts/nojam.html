@@ -54,13 +54,10 @@ layout: default
 
 <a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
 <div align="right">
-  {% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font> {%
-  else %}<font color="#090">✔ Solved</font> {% if page.solve_date %} at
-  <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %} {% if
-  page.solve_lang %}{% assign lang = site.data.languages[page.solve_lang] %}
-  with <span class="lang_{{ lang.class }}">{{ lang.name }}</span>{% endif %} {%
-  endif %}
-</div>
+  {% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font> {% else %}<font color="#090">✔ Solved</font>
+  {% if page.solve_date %} at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %} {% if page.solve_lang
+  %}{% assign lang = site.data.languages[page.solve_lang] %} with <span class="lang_{{ lang.class }}">{{ lang.name
+    }}</span>{% endif %} {% endif %}</div>
 <div>
   <span id="nojam_diff"></span>
   <span id="nojam_diff_fixed" style="display: none;">✅</span>
@@ -73,18 +70,17 @@ layout: default
 <p></p>
 
 {{ content }} {% if page.solve_step %}
+{% assign num = page.solve_step[0] %}
 <p>
-  백준의 단계별로 풀어보기 {{ page.solve_step[0] }}단계
-  <a href="https://www.acmicpc.net/step/{{ page.solve_step[0] }}"
-    ><b>{{ site.data.nojam_step_name[page.solve_step[0]] }}</b></a
-  >의 <b>{{ page.solve_step[1] }}번</b> 문제입니다.
+  백준의 단계별로 풀어보기 {{ num }}단계
+  <a href="https://www.acmicpc.net/step/{{ site.data.nojam_step_name[num].addr }}">{{ site.data.nojam_step_name[num].name }}</a>의 <b>{{ page.solve_step[1]
+    }}번</b> 문제입니다.
 </p>
-{% endif %} {% if page.solve_exclude == nil %}
+{% endif %}
+{% if page.solve_exclude == nil %}
 <p>
   <a
-    href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}"
-    >코드(Github)</a
-  >{% if page.solve_share %} /
-  <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
+    href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}">코드(Github)</a>{%
+  if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
 </p>
 {% endif %}
