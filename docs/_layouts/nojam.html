@@ -88,15 +88,19 @@ layout: default
 {% endif %}
 {% endfor %}
 {% if name %}
-<p>
-  백준의 단계별로 풀어보기 {{ num1 }}단계
-  <a href="https://www.acmicpc.net/step/{{ addr }}">{{ name }}</a>의 <b>{{ num2 }}번</b> 문제입니다.
-</p>
+<p> 백준의 단계별로 풀어보기 {{ num1 }}단계 <a href="https://www.acmicpc.net/step/{{ addr }}">{{ name }}</a>의 <b>{{ num2 }}번</b>
+  문제입니다.</p>
 {% endif %}
+{% for class in site.data.nojam_solved_class %}
+{% if class.problems_normal contains page.solve_num or class.problems_ess contains page.solve_num %}
+<p> solved.ac의 <a href="https://solved.ac/class/{{ forloop.index }}"
+    style="color:#{{ class.bg }};background-color:#{{ class.fg }};padding:4px 6px;font-family:NanumSquare"><b>CLASS {{
+      forloop.index }}</b></a> 에 속한 {% if class.problems_ess contains page.solve_num %}<code
+    style="background-color:orange;color:white;">ESSENTIAL</code> {% endif %}문제입니다.</p>
+{% endif %}
+{% endfor %}
 {% if page.solve_exclude == nil %}
-<p>
-  <a
+<p> <a
     href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}">코드(Github)</a>{%
-  if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
-</p>
+  if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}</p>
 {% endif %}
