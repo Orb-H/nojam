@@ -55,9 +55,7 @@ layout: default
 <a href="http://noj.am/{{ page.solve_num }}">문제 링크</a>
 <div align="right" style="font-family:NanumSquare">
   {% if page.solve_exclude != nil %}<font color="#f00">✖ Not Solved</font> {% else %}<font color="#090">✔ Solved</font>
-  {% if page.solve_date %} at <b>{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</b>{% endif %} {% if page.solve_lang
-  %}{% assign lang = site.data.languages[page.solve_lang] %} with <span class="lang_{{ lang.class }}">{{ lang.name
-    }}</span>{% endif %} {% endif %}</div>
+  {% endif %}</div>
 <div>
   <span id="nojam_diff" style="font-family:NanumSquare"></span>
   <span id="nojam_diff_fixed" style="display: none;">✅</span>
@@ -99,10 +97,33 @@ layout: default
     style="background-color:orange;color:white;">ESSENTIAL</code> {% endif %}문제입니다.</p>
 {% endif %}
 {% endfor %}
+<h4>소스 코드</h4>
 {% if page.solve_exclude == nil %}
-<p> <a
-    href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ site.data.languages[page.solve_lang].extension }}">코드(Github)</a>{%
-  if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}</p>
+<p>
+<table>
+  <thead>
+    <tr>
+      <th>언어</th>
+      <th>코드</th>
+      <th>시간</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% assign lang = site.data.languages[page.solve_lang] %}
+      <td><span class="lang_{{ lang.class }}">{{ page.solve_lang }}</span></td>
+      <td>
+        <a
+          href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ lang.extension }}">코드(Github)</a>{%
+        if page.solve_share %} / <a href="http://boj.kr/{{ page.solve_share }}">코드(백준)</a>{% endif %}
+      </td>
+      <td>
+        {% if page.solve_date %}{{ page.solve_date | date: "%Y-%m-%d %H:%M:%S" }}{% endif %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+</p>
 {% endif %}
 
 <div id="disqus_thread"></div>
