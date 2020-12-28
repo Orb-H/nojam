@@ -70,7 +70,7 @@ layout: default
   {% for step in site.data.nojam_step %}
   {% assign flag = false %}
   {% if step.problems contains page.solve_num %}
-  <code style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff">{{ forloop.index }} | {{ step.name }}</a></code>
+  <code style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff">{{ forloop.index }}. <small>{{ step.name }}</small></a></code>
   {% endif %}
   {% endfor %}
 <code
