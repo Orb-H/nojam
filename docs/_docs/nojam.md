@@ -32,8 +32,18 @@ regenerate: true
                 <tr>
                     <td>{{ item.solve_num }}</td>
                     <td><a href="{{ item.url | relative_url }}">{{ item.solve_name }}</a></td>
+                    {% if item.solve_detail %}
+                    {% assign lang_array = item.solve_detail | map: "solve_lang" | uniq %}
+                    <td>
+                    {% for lang in lang_array %}
+                    {% assign lang_ = site.data.languages[lang] %}
+                    {% unless forloop.first %} / {% endunless %}<span class="lang_{{ lang_.class }}">{{ lang_.name }}</span>
+                    {% endfor %}
+                    </td>
+                    {% else %}
                     {% assign lang = site.data.languages[item.solve_lang] %}
                     <td class="lang_{{ lang.class }}">{{ lang.name }}</td>
+                    {% endif %}
                     {% assign diff = site.data.nojam_diff %}
                     {% assign num = item.solve_diff %}
                     <td class="diff_{{ diff[num].class }}"><div style="display: none;">{{ num | plus: 10 }}</div>{{ diff[num].sym_light }} {{ diff[num].text }}</td>
