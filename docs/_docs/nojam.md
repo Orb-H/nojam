@@ -37,7 +37,7 @@ regenerate: true
                     {% assign diff = site.data.nojam_diff %}
                     {% assign num = item.solve_diff %}
                     <td class="diff_{{ diff[num].class }}"><div style="display: none;">{{ num | plus: 10 }}</div>{{ diff[num].sym_light }} {{ diff[num].text }}</td>
-                    <td>{{ item.solve_date | date: "%Y-%m-%d %H:%M:%S" }}</td>
+                    <td>{% if item.solve_detail %}{{ item.solve_detail[0].solve_date | date: "%Y-%m-%d %H:%M:%S" }}{% else %}{{ item.solve_date | date: "%Y-%m-%d %H:%M:%S" }}{% endif %}</td>
                 </tr>
             {% endfor %}
         </tbody>
