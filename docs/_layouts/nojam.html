@@ -84,6 +84,7 @@ layout: default
 {% endif %}
 {% endfor %}
 
+{% if page.solve_hint %}
 {{ page.solve_hint | prepend: "> " | markdownify }}
 <div>
   <a onclick="document.getElementById('nojam_content').style['display']='block';this.style['display']='none'">풀이 비스무리한거 보기</a>
@@ -91,6 +92,9 @@ layout: default
 <div id="nojam_content" style="display:none">
 {{ content }}
 </div>
+{% else %}
+{{ content }}
+{% endif %}
 <hr />
 <h4>소스 코드</h4>
 {% if page.solve_detail != nil %}
