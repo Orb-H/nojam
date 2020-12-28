@@ -101,7 +101,18 @@ regenerate: true
         {% for lang in site.data.languages %}
         <tr>
             <td class="lang_{{ lang[1].class }}">{{ lang[0] }}</td>
-            <td>{{ docs | where: "solve_lang", lang[0] | size }}</td>
+            <td>
+            {% assign num = 0 %}
+            {% assign new_docs = docs | where_exp: "item", "item.solve_detail != nil" %}
+            {% for doc in new_docs %}
+            {% for info in doc.solve_detail %}
+            {% if info.solve_lang == lang[0] %}
+            {% assign num = num | plus: 1 %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            {{ docs | where: "solve_lang", lang[0] | size | plus: num }}
+            </td>
         </tr>
         {% endfor %}
     </tbody>
