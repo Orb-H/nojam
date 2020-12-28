@@ -66,19 +66,20 @@ layout: default
   태그:
   <p style="display: inline;" id="nojam_tags"></p>
 </div>
-{% for class in site.data.nojam_solved_class %}
-{% if class.problems_normal contains page.solve_num or class.problems_ess contains page.solve_num %}
 <p>
   {% for step in site.data.nojam_step %}
   {% assign flag = false %}
   {% if step.problems contains page.solve_num %}
-  <code style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff">{{ forloop.index }}. <small>{{ step.name }}</small></a></code>
+  <code
+    style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff">{{ forloop.index }}. <small>{{ step.name }}</small></a></code>
   {% endif %}
   {% endfor %}
-<code
-  style="background-color:#{{ class.fg }};padding:4px 6px"><b><a style="color:#{{ class.bg }};font-family:NanumSquare" href="https://solved.ac/class/{{ forloop.index }}" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#{{ class.bg }}'">CLASS {{ forloop.index }}</a></b></code>{%
-if class.problems_ess contains page.solve_num %} <code style="background-color:orange;color:white;">ESSENTIAL</code>{%
-endif %}
+  {% for class in site.data.nojam_solved_class %}
+  {% if class.problems_normal contains page.solve_num or class.problems_ess contains page.solve_num %}
+  <code
+    style="background-color:#{{ class.fg }};padding:4px 6px"><b><a style="color:#{{ class.bg }};font-family:NanumSquare" href="https://solved.ac/class/{{ forloop.index }}" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#{{ class.bg }}'">CLASS {{ forloop.index }}</a></b></code>{%
+  if class.problems_ess contains page.solve_num %} <code style="background-color:orange;color:white;">ESSENTIAL</code>{%
+  endif %}
 </p>
 {% endif %}
 {% endfor %}
