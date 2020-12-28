@@ -84,11 +84,16 @@ layout: default
 {% endif %}
 {% endfor %}
 
+{{ page.solve_hint | prepend: "> " | markdownify }}
+<div>
+  <a onclick="document.getElementById('nojam_content').style['display']='block';this.style['display']='none'">풀이 비스무리한거 보기</a>
+</div>
+<div id="nojam_content" style="display:none">
 {{ content }}
-
+</div>
+<hr />
 <h4>소스 코드</h4>
 {% if page.solve_detail != nil %}
-<p>
 <table>
   <thead>
     <tr>
@@ -117,10 +122,8 @@ layout: default
     {% endfor %}
   </tbody>
 </table>
-</p>
 {% else %}
 {% if page.solve_exclude == nil %}
-<p>
 <table>
   <thead>
     <tr>
@@ -144,9 +147,10 @@ layout: default
     </tr>
   </tbody>
 </table>
-</p>
 {% endif %}
 {% endif %}
+
+<hr />
 
 <div id="disqus_thread"></div>
 <script>
