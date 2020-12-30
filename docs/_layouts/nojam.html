@@ -107,7 +107,7 @@ layout: default
       <td>{% if info.solve_name %}{{ info.solve_name }}{% endif %}</td>
       <td>
         <a
-          href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ lang.extension }}">코드(Github)</a>
+          href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ info.solve_suffix }}{{ lang.extension }}">코드(Github)</a>
         {% if info.solve_share %} / <a href="http://boj.kr/{{ info.solve_share }}">코드(백준)</a>{% endif %}
       </td>
       <td>
