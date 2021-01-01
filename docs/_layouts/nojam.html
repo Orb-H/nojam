@@ -56,9 +56,9 @@ layout: default
       var title = document.getElementsByTagName("h3")[0];
       var content = title.innerHTML.split(" ", 1);
       if (data.result.total_problems === 1) {
-        title.innerHTML = "<font color=#009874>{{ page.solve_num }}</font> - {{ page.solve_name }}";
+        title.innerHTML = "<font color=#009874>{{ page.solve_num }}</font> - {{ page.solve_name }} <a href='http://noj.am/{{ page.solve_num }}'>🔗</a>";
       } else {
-        title.innerHTML = "<font color=#dd4124 style='font-weight:normal;'>{{ page.solve_num }}</font> - {{ page.solve_name }}";
+        title.innerHTML = "<font color=#dd4124 style='font-weight:normal;'>{{ page.solve_num }}</font> - {{ page.solve_name }} <a href='http://noj.am/{{ page.solve_num }}'>🔗</a>";
       }
     }
   };
@@ -97,10 +97,11 @@ layout: default
 {% if page.solve_hint %}
 {{ page.solve_hint | prepend: "> " | markdownify }}
 <div>
-  <a onclick="document.getElementById('nojam_content').style['display']='block';this.style['display']='none'">풀이 비스무리한거 보기</a>
+  <a onclick="document.getElementById('nojam_content').style['display']='block';this.style['display']='none'">풀이 비스무리한거
+    보기</a>
 </div>
 <div id="nojam_content" style="display:none">
-{{ content }}
+  {{ content }}
 </div>
 {% else %}
 {{ content }}
