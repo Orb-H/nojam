@@ -101,13 +101,18 @@ layout: default
     보기</a>
 </div>
 <div id="nojam_content" style="display:none">
-  {{ content }}
-</div>
 {% else %}
 <div id="nojam_content">
-  {{ content }}
-</div>
 {% endif %}
+{{ content | replace: "-a-", "<h4>문제 설명</h4>"
+           | replace: "-b-", "<h4>입력</h4>"
+           | replace: "-c-", "<h4>출력</h4>"
+           | replace: "-d-", "<h4>풀이</h4>"
+           | replace: "-[", "<h4>"
+           | replace: "]-", "</h4>"
+           | replace: "-(", "<h5>"
+           | replace: ")-", "</h5>" }}
+</div>
 <hr />
 <h4>소스 코드</h4>
 {% if page.solve_detail != nil %}
