@@ -7,8 +7,8 @@ layout: default
   var diff_names = ["Bronze", "Silver", "Gold", "Platinum", "Diamond", "Ruby"];
   var roman = ["V", "IV", "III", "II", "I"];
 
-  if (document.location.href.indexOf("orb-h.github.io") > -1) {
-    window.onload = async function () {
+  window.onload = async function () {
+    if (document.location.href.indexOf("orb-h.github.io") > -1) {
       var data = await (
         await fetch(
           "https://api.solved.ac/v2/problems/show.json?id={{ page.solve_num }}"
@@ -49,6 +49,16 @@ layout: default
           "<code class='language-plaintext highlighter-rouge'>" +
           data.tags[i].full_name_ko +
           "</code>&nbsp;";
+      }
+
+      // correct??
+      var data = await (await fetch("https://api.solved.ac/v2/search/problems.json?query={{ page.solve_num }}+solved_by:orb_h")).json();
+      var title = document.getElementsByTagName("h3")[0];
+      var content = title.innerHTML.split(" ", 1);
+      if (data.result.total_problems === 1) {
+        title.innerHTML = "<font color=#009874>{{ page.solve_num }}</font> - {{ page.solve_name }}";
+      } else {
+        title.innerHTML = "<font color=#dd4124 style='font-weight:normal;'>{{ page.solve_num }}</font> - {{ page.solve_name }}";
       }
     }
   };
