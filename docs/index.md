@@ -7,4 +7,4 @@ title: 환영합니다!
 ## 정리하고 있는 사이트
 
 - 백준([문제 리스트]({{ site.baseurl }}/nojam) / [통계]({{ site.baseurl }}/nojam/statistics))<br />
-↑ Under Construction / 일단 성의없이 적어둔 문제 풀이는 있습니다아
+↑ 원래 있던 페이지에 이것저것 기능을 추가하고 있습니다 / 그래도 일단 ~~성의없이 적어둔~~ 문제 풀이 비스무리한거는 있습니다아
