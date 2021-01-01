@@ -27,8 +27,8 @@ solve_detail: # new format of solve information / old format is also OK
 
 -d- <!-- Replaced to <h4>풀이</h4> -->
 
--[ Content ]- <!-- Replaced to <h4>Content</h4> -->
+-[n]- <!-- Replaced to <h4>다른 풀이 n</h4> -->
 
--( Content )- <!-- Replaced to <h5>Content</h5> -->
+-(n)- <!-- Replaced to <h4>다른 풀이(n)</h4> -->
 
 Main Content
