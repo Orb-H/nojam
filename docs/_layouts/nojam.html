@@ -81,7 +81,7 @@ layout: default
   {% assign flag = false %}
   {% if step.problems contains page.solve_num %}
   <code
-    style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff">{{ forloop.index }}. <small>{{ step.name }}</small></a></code>
+    style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff;font-family:NanumSquare">{{ forloop.index }}. {{ step.name }}</a></code>
   {% endif %}
   {% endfor %}
   {% for class in site.data.nojam_solved_class %}
