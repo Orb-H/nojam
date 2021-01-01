@@ -12,8 +12,8 @@ solve_diff: # 1 ~ 5 = Ruby 1 ~ 5, 6 ~ 10 = Diamond 1 ~ 5, 11 ~ 15 = Platinum 1 ~
 solve_hint: # A hint message to show
 
 solve_detail: # new format of solve information / old format is also OK
-  - solve_name: # Nickname for solution 0, 1, 2, ...
-    solve_suffix: # Suffix for file in repository
+  - solve_name: # Nickname for solution 0, 1, 2, ... (ex) Short-code, Used Dijkstra)
+    solve_suffix: # Suffix for file in repository (ex) 1000_.cpp -> "_", 5622_short.py -> "_short")
     solve_lang: # Name of Language ex) Python 3, C++, C, ...
     solve_date: # Any date-format may be available; which liquid can undestand
     solve_share: # Sharing code in acmicpc.net, if you want
