@@ -1,0 +1,1 @@
+a,c;char s[101];main(n){for(scanf("%d",&n);n--;scanf("%s",s))c=c?c:*s,a|=*s;printf("%d",a==c);}
