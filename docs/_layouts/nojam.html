@@ -120,9 +120,9 @@ layout: default
   <thead>
     <tr>
       <th>언어</th>
-      <th>비고</th>
       <th>코드</th>
       <th>시간</th>
+      <th>비고</th>
     </tr>
   </thead>
 
@@ -131,7 +131,6 @@ layout: default
     <tr>
       {% assign lang = site.data.languages[info.solve_lang] %}
       <td><span class="lang_{{ lang.class }}">{{ info.solve_lang }}</span></td>
-      <td>{% if info.solve_name %}{{ info.solve_name }}{% endif %}</td>
       <td>
         <a
           href="https://github.com/{{ site.repo_name }}/tree/master/{{ site.source_dir }}{{ page.solve_num }}{{ info.solve_suffix }}{{ lang.extension }}">코드(Github)</a>
@@ -140,6 +139,7 @@ layout: default
       <td>
         {% if info.solve_date %}{{ info.solve_date | date: "%Y-%m-%d %H:%M:%S" }}{% endif %}
       </td>
+      <td>{% if info.solve_name %}{{ info.solve_name }}{% endif %}</td>
     </tr>
     {% endfor %}
   </tbody>
