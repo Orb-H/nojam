@@ -82,3 +82,6 @@ types:
 
 repo_name: Orb-H/nojam # Name of repository including your nickname in Github
 source_dir: source/nojam/ # A folder containing your source code
+
+markdown: kramdown
+highlighter: rouge
