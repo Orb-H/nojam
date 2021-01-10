@@ -104,17 +104,16 @@ layout: default
 {% else %}
 <div id="nojam_content">
 {% endif %}
-{{ content | replace: "-a-", "<h4>문제 설명</h4>"
-           | replace: "-b-", "<h4>입력</h4>"
-           | replace: "-c-", "<h4>출력</h4>"
-           | replace: "-d-", "<h4>풀이</h4>"
-           | replace: "-[", "<h4>다른 풀이 "
-           | replace: "]-", "</h4>"
-           | replace: "-(", "<h4>다른 풀이("
-           | replace: ")-", ")</h4>" }}
+{{ content | replace: "-a-", "<h3>문제 설명</h3>"
+           | replace: "-b-", "<h3>입력</h3>"
+           | replace: "-c-", "<h3>출력</h3>"
+           | replace: "-d-", "<h3>풀이</h3>"
+           | replace: "-[", "<h3>다른 풀이 "
+           | replace: "]-", "</h3>"
+           | replace: "-(", "<h3>다른 풀이("
+           | replace: ")-", ")</h3>" }}
 </div>
-<hr />
-<h4>소스 코드</h4>
+<h3>소스 코드</h3>
 {% if page.solve_detail != nil %}
 <table>
   <thead>
