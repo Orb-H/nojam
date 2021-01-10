@@ -4,6 +4,18 @@ category: 디버그용 페이지
 regenerate: true
 ---
 
+### 입력
+
+### 출력
+
+### 풀이
+
+#### C
+
+#### C++
+
+#### Python 3
+
 ```c
 #include <stdio.h>
 
