@@ -92,6 +92,15 @@
 				</ul>
 
 				<ul>
+					{% assign grouped = site.docs | where: 'title', "알고리즘 메모" %}
+					{% for item in grouped %}
+					<li class="nav-item top-level {% if item.url == page.url %}current{% endif %}">
+						<a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+
+				<ul>
 					<li class="nav-item top-level {% if page.url == '/updates/' %}current{% endif %}">
 						{% assign changelog = site.html_pages | where: 'url', '/updates/' | first %}
 						<a href="{{ site.baseurl }}/updates/">{{ changelog.title }}</a>
