@@ -21,5 +21,5 @@ regenerate: true
   {% endif %}
 {% endfor %}
 <script>
-  window.location.replace("{{ site.baseurl }}{{ site.url }}/nojam/{{ latest_num }}");
+  window.location.replace("{{ site.baseurl }}/nojam/{{ latest_num }}");
 </script>
