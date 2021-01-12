@@ -17,10 +17,10 @@ layout: default
         </tr>
     </thead>
     <tbody>
-        {% assign items = site.docs | where: 'category', "노트" %}
+        {% assign items = site.docs | where: 'category', "노트" | sort: "order" %}
         {% for item in items %}
             <tr>
-                <td><a href="{{ item.url | relative_url }}">{{ item.name }}</a></td>
+                <td><a href="{{ item.url | relative_url }}">{{ item.title }}</a></td>
                 <td>{{ item.diff }}</td>
             </tr>
         {% endfor %}
