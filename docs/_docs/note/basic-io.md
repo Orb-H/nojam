@@ -6,8 +6,8 @@ layout: note
 
 diff: "<span class='diff_bronze'>Bronze V</span>"
 
-written: "2021-01-11"
-edited: "2021-01-12"
+written: "2021-01-11 22:48"
+edited: "2021-01-12 23:59"
 ---
 
 ### C
