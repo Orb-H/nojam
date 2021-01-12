@@ -6,8 +6,8 @@ layout: note
 
 diff: "<span class='diff_bronze'>Bronze V</span>"
 
-written: "2021-01-11 22:48"
-edited: "2021-01-12 23:59"
+written: "2021-01-12 22:48"
+edited: "2021-01-12 23:16"
 ---
 
 ### C
@@ -134,3 +134,12 @@ a = [1, 2, 3, 4, 5]
 for i in range(len(a)):
     print(a, end=' ')
 ```
+
+Python도 마찬가지로 입력의 속도를 높이는 방법이 있다. 바로 `input()`함수를 호출하는 것이 아닌 `sys` 라이브러리의 `stdin`을 직접 참조하는 것이다. 아래와 같이 말이다.
+
+```python
+import sys
+n = int(sys.stdin.readline())
+```
+
+이게 더 빠른 이유는 모르겠는데 아무래도 `input()` 함수를 실행할 때 숨겨진 무언가가 있는 것 같다.
