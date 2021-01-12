@@ -2,6 +2,7 @@
 title: "기본적인 입출력"
 order: 1
 category: 노트
+layout: note
 
 diff: "<span class='diff_bronze'>Bronze V</span>"
 
