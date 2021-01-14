@@ -41,7 +41,11 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 		<script>
 			MathJax.Hub.Config({
-				displayAlign: "left"
+				displayAlign: "left",
+				tex2jax: {
+					inlineMath: [['$', '$']],
+					displayMath: [['$$', '$$']]
+				}
 			});
 		</script>
 	</head>
