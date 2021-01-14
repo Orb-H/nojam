@@ -7,7 +7,7 @@ layout: note
 diff: "<span class='diff_bronze'>Bronze V</span>"
 
 written: "2021-01-12 22:48"
-edited: "2021-01-12 23:16"
+edited: "2021-01-14 21:59"
 ---
 
 ### 언어별 입출력
