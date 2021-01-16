@@ -162,6 +162,25 @@ n = int(sys.stdin.readline())
 
 문자열 중간에 이스케이프 문자를 넣어 해당 문자를 나타낼 수도 있고, `'a'`이나 `'A'`처럼 문자 하나를 나타낼 때도 해당 문자를 대신하여 이스케이프 문자를 사용할 수 있다. `'\n'`, `'\\'`처럼 말이다!
 
+### 정리
+
+- 입출력 함수
+  - C: `scanf` / `printf`
+  - C++: `cin >> ` / `cout << `
+  - Java: `Scanner.next()`, `nextInt()`, `nextFloat()`, ... / `System.out.print`, `printf`, `println`
+  - Python: `input()` / `print()`
+- 포맷 문자열(C/C++/Java)
+  - 문자: `%c`
+  - 부호있는 10진수 정수: `%d`, `%ld`, `%lld`
+  - 부호없는 10진수 정수: `%u`, `%lu`, `%llu`
+  - 16진수 정수: `%x`, `%lx`, `%llx` (`x` 대신 `X`를 사용할 경우 대문자로 입/출력)
+  - 실수: `%f`, `%lf`, `%Lf` (`f` 대신 `F`를 사용할 경우 INF, NAN 등을 대문자로 입/출력)
+  - 문자열: `%s`
+- 빠른 입출력(나중에 해도 됨)
+  - C++: `ios::sync_with_base(false);`, `cin.tie(NULL);` / `endl` 사용 회피
+  - Java: Scanner 대신 BufferedReader / System.out 대신 BufferedWriter
+  - Python: `sys.stdin.readline()`
+
 ### 적당한 문제
 
 사실 지금 수준에서 더 빠른 입출력을 알기보다는 다양한 형식의 데이터를 입력받고 출력할 수 있는 것을 아는 것이 더 중요하다. 입출력만 할 줄 알아도 풀 수 있는 문제가 많다! 당장 [2557번 - Hello World!](noj.am/2557)를 풀 수 있다! 그리고 포맷 문자열을 잘 이해했다면, [11654번 - 아스키 코드](noj.am/11654) 또한 풀 수 있을 것이다!
