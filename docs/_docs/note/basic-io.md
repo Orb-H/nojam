@@ -7,7 +7,7 @@ layout: note
 diff: "<span class='diff_bronze'>Bronze V</span>"
 
 written: "2021-01-12 22:48"
-edited: "2021-01-16 23:49"
+edited: "2021-01-16 23:58"
 ---
 
 ### 언어별 입출력
@@ -191,7 +191,7 @@ n = int(sys.stdin.readline())
   - [10171 - 고양이](noj.am/10171)[^2]
 - 포맷 문자열
   - [11654 - 아스키 코드](noj.am/11654)
-- 빠른 입출력(사칙연산을 먼저 읽어보아야 합니다)
+- 빠른 입출력 / [사칙연산]({{ site.baseurl }}/note/arithmetic/#연산의-종류)
   - [15552 - 빠른 A+B](noj.am/15552)
 
 <hr />
