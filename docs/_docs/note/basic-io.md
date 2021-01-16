@@ -22,6 +22,9 @@ edited: "2021-01-14 21:59"
 |%d|int 범위의 정수|
 |%ld|long 범위의 정수|
 |%lld|long long 범위의 정수|
+|%u|unsigned int 범위의 정수|
+|%lu|unsigned long 범위의 정수|
+|%llu|unsigned long long 범위의 정수|
 |%o|8진수 숫자(0aaaa... 꼴)|
 |%x|16진수 숫자(0xgggg... 꼴)|
 |%f|float 범위의 실수|
