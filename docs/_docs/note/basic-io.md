@@ -4,7 +4,7 @@ order: 1
 category: 노트
 layout: note
 
-diff: "<span class='diff_bronze'>Bronze V</span>"
+diff: 30
 
 written: "2021-01-12 22:48"
 edited: "2021-01-16 23:58"

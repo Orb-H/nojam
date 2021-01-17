@@ -5,7 +5,8 @@ layout: default
 <div align=right>
   작성: {{ page.written }} <br/>
   수정: {%- if page.edited -%}{{ page.edited }}{%- else -%}{{ page.written }}{%- endif -%} <br/>
-  난이도: {{ page.diff }}
+  {%- assign diff = page.diff -%}
+  난이도: {% boj_diff diff %}
 </div>
 
 {{ content }}
