@@ -200,4 +200,4 @@ n = int(sys.stdin.readline())
 <hr />
 
 [^1]: 대문자를 사용할 경우 영어 소문자 알파벳 대신 대문자 알파벳으로 입/출력을 진행한다. (ex) 0x1a2b3c → 0x1A2B3C, nan → NAN)
-[^2]: 세트 문제로 {% boj_info 10172 %}도 있습니다!
+[^2]: 세트 문제로 {% include boj_info.html num=10172 %}도 있습니다!
