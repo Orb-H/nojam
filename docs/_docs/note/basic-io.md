@@ -1,20 +1,20 @@
 ---
-title: "기본적인 입출력"
-order: 1
+title: "기초: 기본적인 입출력"
+order: 0
 category: 노트
 layout: note
 
 diff: 30
 
 written: "2021-01-12 22:48"
-edited: "2021-01-16 23:58"
+edited: "2021-01-17 22:39"
 ---
 
 ### 언어별 입출력
 
 #### C
 
-입력 함수로는 주로 `scanf`, 출력 함수로는 주로 `printf`를 사용한다. `stdio.h` 헤더에 포함되어있으며, 함수의 형태는 `f("포맷 문자열", 변수...);`이다. 포맷 문자열은 변수로 입력받거나 변수를 출력할 때 어떤 형식으로 할지를 정의한다. 주로 쓰는 것들은 아래와 같다.
+입력 함수로는 주로 `scanf`, 출력 함수로는 주로 `printf`를 사용한다. `stdio.h` 헤더에 포함되어있으며, 함수의 형태는 `scanf("문자열", 변수의 주소...);`, `printf("문자열", 변수...);`이다. `scanf`와 `printf`에 들어가는 문자열에는 포맷 문자열이 들어갈 수 있는데, 포맷 문자열은 변수로 입력받거나 변수를 출력할 때 어떤 형식으로 입력/출력할지를 정의한다. 주로 쓰는 것들은 아래와 같다.
 
 |포맷|의미|
 |:-:|:-:|
@@ -31,6 +31,7 @@ edited: "2021-01-16 23:58"
 |%lf, %lF[^1]|double 범위의 실수|
 |%Lf, %LF[^1]|long double 범위의 실수|
 |%s|다음 whitespace 전까지의 문자열|
+|%%|%|
 
 사용 예시는 아래와 같다.
 
@@ -52,11 +53,13 @@ C와는 다르게 stdin으로부터 입력받는 `istream` 객체가 존재한�
 #include <iostream>
 ...
 int a;
-cin >> a;
-cout << a * a;
+std::cin >> a;
+std::cout << a * a;
 ```
 
-와중에 `istream`의 `>>` 연산자는 반환형이 그대로(정확히는 `istream&`)라서 연달아서 계속 사용할 수 있다. 마찬가지로 `ostream`의 `<<` 연산자도 반환형이 그대로(정확히는 `ostream&`)라서 연달아 계속 사용이 가능하다.
+`std::`는 `using namespace std`를 `#include <iostream>` 아래에 추가하여 생략할 수 있다.
+
+`istream`의 `>>` 연산자는 반환형이 그대로(정확히는 `istream&`)라서 연달아서 계속 사용할 수 있다. 마찬가지로 `ostream`의 `<<` 연산자도 반환형이 그대로(정확히는 `ostream&`)라서 연달아 계속 사용이 가능하다.
 
 ```cpp
 #include <iostream>
@@ -66,7 +69,7 @@ cin >> a >> b >> c;
 cout << a + b << " " << b + c << endl;
 ```
 
-위의 `endl`은 개행 문자 + flush를 의미하는 상수이다. PS에서는 사용할 때마다 flush 데에 시간을 소비하므로 이왕이면 `\n`으로 대체하여 쓰는 것이 좋다.
+위의 `endl`은 개행 문자 + flush를 의미하는 상수이다. PS에서는 사용할 때마다 flush 데에 시간을 소비하므로 `\n`으로 대체하여 쓰는 것이 좋다.
 
 난이도가 어려워질수록 cin과 cout을 그냥 쓰는 것보다 더 빠른 속도가 필요할 때가 있다. 그럴 때는 아래의 두 줄을 추가해주면 된다.
 
@@ -75,7 +78,7 @@ ios::sync_with_stdio(false);
 std::cin.tie(NULL);
 ```
 
-자세한 내용은 까먹었다.
+원래는 C++의 입출력 시스템과 C의 입출력 시스템이 동기화되어있고, `cin`과 `cout`를 이용한 입출력과 `printf`와 `scanf`를 이용한 입출력을 혼용할 수 있다. 여기서 첫 번째 줄을 삽입하면 동기화가 풀려버려 동기화에 필요한 시간만큼 이득을 볼 수 있지만 C++의 입출력과 C의 입출력을 혼용할 수는 없게 된다. 두 번째 줄은 cin과 cout을 untie해버리는 것이다. 원래는 cin이 입력받기 전에 출력 버퍼를 비우는 작업을 했는데, PS에서는 그런 거 필요없다. 주어진 입력에 대해 알맞은 출력만 나오면 되므로 이를 untie해서 입력이 계속 들어오더라도 출력이 되지 않다가 버퍼가 꽉 차거나 프로그램이 종료될 때 버퍼를 비우게 하는 것이 시간을 더 줄일 수 있다.
 
 #### Java
 
@@ -101,7 +104,7 @@ double d = sc.nextDouble();
 
 Java API를 뒤져보면 `Scanner`가 상당히 많은 양의 입력 방식을 지원하고, 심지어는 다음에 나올 토큰의 타입을 판별하여 `boolean`값으로 주기도 한다. 하지만 왠지 모르게 PS에서 사람들은 `BufferedReader`를 선호하는 것 같다.
 
-찾아보니 `System.out` 대신 `BufferedWriter`를 사용하기도 하는 것 같다. 이유는 flush를 줄이기 위해서다. 출력 버퍼에서 콘솔로 데이터를 보내는 것을 최소화하여 시간을 아끼는 것이 주된 목적인 것 같다. 반대로 `System.out.print` 계열 함수는 호출할 때마다 flush가 일어나므로 `BufferedWriter`보다는 시간이 더 걸릴 것이다.
+찾아보니 `System.out` 대신 `BufferedWriter`를 사용한다. 이유는 flush를 줄이기 위해서다. 출력 버퍼에서 콘솔로 데이터를 보내는 것을 최소화하여 시간을 아끼는 것이 주된 목적인 것 같다. 반대로 `System.out.print` 계열 함수는 개행 문자가 입력될 때마다 flush가 일어나므로 `BufferedWriter`보다는 시간이 더 걸릴 것이다.
 
 #### Python 3
 
@@ -116,7 +119,7 @@ print(a)
 
 ```python
 a = [1, 2, 3, 4, 5]
-b = map(lambda x: x ** 2, a) # [1, 4, 9, 16, 25]
+b = list(map(lambda x: x ** 2, a)) # [1, 4, 9, 16, 25]
 ```
 
 이것과 형변환 함수를 활용하면 한 줄 단위로 들어오는 문자열을 한 번에 적용시킬 수 있다.
@@ -168,14 +171,14 @@ n = int(sys.stdin.readline())
 - 입출력 함수
   - C: `scanf` / `printf`
   - C++: `cin >> ` / `cout << `
-  - Java: `Scanner.next()`, `nextInt()`, `nextFloat()`, ... / `System.out.print`, `printf`, `println`
+  - Java: `Scanner.next()`, `nextInt()`, `nextFloat()`, ... / `System.out.print()`, `printf()`, `println()`
   - Python: `input()` / `print()`
 - 포맷 문자열(C/C++/Java)
   - 문자: `%c`
   - 부호있는 10진수 정수: `%d`, `%ld`, `%lld`
   - 부호없는 10진수 정수: `%u`, `%lu`, `%llu`
   - 16진수 정수: `%x`, `%lx`, `%llx` (`x` 대신 `X`를 사용할 경우 대문자로 입/출력)
-  - 실수: `%f`, `%lf`, `%Lf` (`f` 대신 `F`를 사용할 경우 INF, NAN 등을 대문자로 입/출력)
+  - 실수: `%f`, `%lf`, `%Lf` (`f` 대신 `F`를 사용할 경우 inf, nan 등을 대문자로 입/출력)
   - 문자열: `%s`
 - 빠른 입출력(나중에 해도 됨)
   - C++: `ios::sync_with_base(false);`, `cin.tie(NULL);` / `endl` 사용 회피
@@ -187,14 +190,14 @@ n = int(sys.stdin.readline())
 대부분 백준의 단계별로 풀어보기나 solved.ac에서 가져옵니다.
 
 - 입출력 함수
-  - [2557 - Hello World!](noj.am/2557)
-  - [10171 - 고양이](noj.am/10171)[^2]
+  - {% boj_info 2557 %}
+  - {% boj_info 10171 %}[^2]
 - 포맷 문자열
-  - [11654 - 아스키 코드](noj.am/11654)
+  - {% boj_info 11654 %}
 - 빠른 입출력 / [사칙연산]({{ site.baseurl }}/note/arithmetic/#연산의-종류)
-  - [15552 - 빠른 A+B](noj.am/15552)
+  - {% boj_info 15552 %}
 
 <hr />
 
 [^1]: 대문자를 사용할 경우 영어 소문자 알파벳 대신 대문자 알파벳으로 입/출력을 진행한다. (ex) 0x1a2b3c → 0x1A2B3C, nan → NAN)
-[^2]: 세트 문제로 [10172번 - 개](noj.am/10172)도 있습니다!
+[^2]: 세트 문제로 {% boj_info 10172 %}도 있습니다!
