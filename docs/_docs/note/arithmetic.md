@@ -7,7 +7,7 @@ layout: note
 diff: 30
 
 written: "2021-01-16 23:59"
-edited: "2021-01-18 12:35"
+edited: "2021-01-18 22:54"
 ---
 
 사칙연산은 덧셈, 뺄셈, 곱셈, 나눗셈의 네 가지 연산을 지칭하는 단어이다. 보통 프로그래밍 언어는 사칙연산을 기본적으로 제공한다.
@@ -255,14 +255,14 @@ int main() {
 ### 적당한 문제
 
 - 사칙연산
-  - {% boj_info 1000 %}
-  - {% boj_info 1001 %}
-  - {% boj_info 10998 %}
-  - {% boj_info 10869 %}
-  - {% boj_info 10430 %}
-  - {% boj_info 2588 %}
+  - {% include boj_info.html num=1000 %}
+  - {% include boj_info.html num=1001 %}
+  - {% include boj_info.html num=10998 %}
+  - {% include boj_info.html num=10869 %}
+  - {% include boj_info.html num=10430 %}
+  - {% include boj_info.html num=2588 %}
 - 수를 저장하는 타입 / [포맷 문자열]({{ site.baseurl }}/note/basic-io/#c)
-  - {% boj_info 1008 %}
+  - {% include boj_info.html num=1008 %}
 
 <hr/>
 

@@ -7,7 +7,7 @@ layout: note
 diff: 30
 
 written: "2021-01-12 22:48"
-edited: "2021-01-17 22:39"
+edited: "2021-01-18 22:54"
 ---
 
 ### 언어별 입출력
@@ -190,12 +190,12 @@ n = int(sys.stdin.readline())
 대부분 백준의 단계별로 풀어보기나 solved.ac에서 가져옵니다.
 
 - 입출력 함수
-  - {% boj_info 2557 %}
-  - {% boj_info 10171 %}[^2]
+  - {% include boj_info.html num=2557 %}
+  - {% include boj_info.html num=10171 %}[^2]
 - 포맷 문자열
-  - {% boj_info 11654 %}
+  - {% include boj_info.html num=11654 %}
 - 빠른 입출력 / [사칙연산]({{ site.baseurl }}/note/arithmetic/#연산의-종류)
-  - {% boj_info 15552 %}
+  - {% include boj_info.html num=15552 %}
 
 <hr />
 

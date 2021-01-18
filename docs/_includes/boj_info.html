@@ -1,0 +1,7 @@
+{%- assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" -%}
+{%- for doc in docs -%}
+    {%- if doc.solve_num == include.num -%}
+        {% include boj_diff.html diff=doc.solve_diff mode=2 %} [{{ doc.solve_num }} - {{ doc.solve_name }}](http://noj.am/{{ doc.solve_num }})
+        {%- break -%}
+    {%- endif -%}
+{%- endfor -%}
