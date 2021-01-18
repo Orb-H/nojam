@@ -7,7 +7,7 @@ layout: note
 diff: 30
 
 written: "2021-01-12 22:48"
-edited: "2021-01-18 22:54"
+edited: "2021-01-18 23:43"
 ---
 
 ### 언어별 입출력
@@ -63,6 +63,7 @@ std::cout << a * a;
 
 ```cpp
 #include <iostream>
+using namespace std;
 ...
 int a, b, c;
 cin >> a >> b >> c;
