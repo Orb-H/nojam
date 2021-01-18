@@ -23,7 +23,7 @@ layout: default
         {% for item in items %}
             <tr>
                 <td><a href="{{ item.url | relative_url }}">{{ item.title }}</a></td>
-                <td>{% boj_diff item.diff %}</td>
+                <td>{% include boj_diff.html diff=item.diff %}</td>
             </tr>
         {% endfor %}
     </tbody>
