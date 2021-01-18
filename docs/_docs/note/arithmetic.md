@@ -188,6 +188,7 @@ int main() {
 C/C++ 기준으로 실수형은 `float`와 `double`이 있다. 실수 또한 Python은 미친듯이 넓은 범위를 자랑한다. C/C++은 아래와 같다.
 
 |타입|범위|크기|
+|:-:|:-:|:-:|
 |float|±3.4028235×10<sup>38</sup> / ±(2-2<sup>-23</sup>)×2<sup>127</sup>|4 bytes|
 |double|±1.7976931×10<sup>308</sup> / ±(2-2<sup>-52</sup>)×2<sup>1023</sup>|8 bytes|
 |long double|±1.1897314×10<sup>4932</sup> / ±(2-2<sup>-63</sup>)×2<sup>16383</sup>|80 bits[^4]|
