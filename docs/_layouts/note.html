@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<div align=right>
+<p align=right>
   작성: {{ page.written }} <br/>
-  수정: {%- if page.edited -%}{{ page.edited }}{%- else -%}{{ page.written }}{%- endif -%} <br/>
+  수정: {% if page.edited %}{{ page.edited }}{%- else -%}{{ page.written }}{%- endif -%} <br/>
   {%- assign diff = page.diff -%}
   난이도: {% include boj_diff.html diff=diff %}
-</div>
+</p>
 
 {{ content }}
 
