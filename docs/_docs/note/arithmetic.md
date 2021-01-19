@@ -253,20 +253,6 @@ int main() {
     - `float`(4), `double`(8), `long double`(10), ...
   - 경우에 따라 적절한 타입을 선택해야 함
 
-### 적당한 문제
-
-대부분 백준의 단계별로 풀어보기나 solved.ac에서 가져옵니다.
-
-- 사칙연산
-  - {% include boj_info.html num=1000 %}
-  - {% include boj_info.html num=1001 %}
-  - {% include boj_info.html num=10998 %}
-  - {% include boj_info.html num=10869 %}
-  - {% include boj_info.html num=10430 %}
-  - {% include boj_info.html num=2588 %}
-- 수를 저장하는 타입 / [포맷 문자열]({{ site.baseurl }}/note/basic-io/#c)
-  - {% include boj_info.html num=1008 %}
-
 <hr/>
 
 [^1]: 환경에 따라 다르다.

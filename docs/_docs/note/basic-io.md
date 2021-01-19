@@ -186,18 +186,6 @@ n = int(sys.stdin.readline())
   - Java: Scanner 대신 BufferedReader / System.out 대신 BufferedWriter
   - Python: `sys.stdin.readline()`
 
-### 적당한 문제
-
-대부분 백준의 단계별로 풀어보기나 solved.ac에서 가져옵니다.
-
-- 입출력 함수
-  - {% include boj_info.html num=2557 %}
-  - {% include boj_info.html num=10171 %}[^2]
-- 포맷 문자열
-  - {% include boj_info.html num=11654 %}
-- 빠른 입출력 / [사칙연산]({{ site.baseurl }}/note/arithmetic/#연산의-종류)
-  - {% include boj_info.html num=15552 %}
-
 <hr />
 
 [^1]: 대문자를 사용할 경우 영어 소문자 알파벳 대신 대문자 알파벳으로 입/출력을 진행한다. (ex) 0x1a2b3c → 0x1A2B3C, nan → NAN)
