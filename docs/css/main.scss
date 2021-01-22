@@ -5,17 +5,23 @@ sitemap: false
 
 $baseurl: "{{ site.baseurl }}";
 $body-background-color: #2B2E31;
+$body-background-color-dark: #ccc;
 
 $content-max-width: 800px;
 $content-color: #222;
+$content-color-dark: #ccc;
 $content-background-color: #fff;
+$content-background-color-dark: #222;
 
 $brand-colour: #ffc000;
+$brand-colour-dark: #806000;
 $brand-colour-light: mix($brand-colour, $content-background-color, 10%);
+$brand-colour-light-dark: mix($brand-colour-dark, $content-background-color-dark, 10%);
 
 $nav-header-background-color: $brand-colour;
 $nav-header-height: 60px;
 $nav-background-color: #f5f5f5;
+$nav-background-color-dark: #303030;
 $nav-width: 300px;
 
 $space: 20px;
@@ -30,3 +36,4 @@ $full-width-break: $nav-width + ($space * 4) + $content-max-width;
 @import "code";
 @import "tables";
 @import "layout";
+@import "custom";

@@ -81,15 +81,16 @@ layout: default
   {% assign flag = false %}
   {% if step.problems contains page.solve_num %}
   <code
-    style="background-color:rgb(0,118,192)"><a href="https://www.acmicpc.net/step/{{ step.addr }}" style="color:#fff;font-family:NanumSquare">{{ forloop.index }}. {{ step.name }}</a></code>
+    class="boj_class"><a href="https://www.acmicpc.net/step/{{ step.addr }}">{{ forloop.index }}. {{ step.name }}</a></code>
   {% endif %}
   {% endfor %}
   {% for class in site.data.nojam_solved_class %}
   {% if class.problems_normal contains page.solve_num or class.problems_ess contains page.solve_num %}
-  <code
-    style="background-color:#{{ class.fg }};padding:4px 6px"><b><a style="color:#{{ class.bg }};font-family:NanumSquare" href="https://solved.ac/class/{{ forloop.index }}" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#{{ class.bg }}'">CLASS {{ forloop.index }}</a></b></code>{%
-  if class.problems_ess contains page.solve_num %} <code style="background-color:orange;color:white;">ESSENTIAL</code>{%
-  endif %}
+  {% if class.problems_ess contains page.solve_num %}
+  {% include solved_class.html class=forloop.index ess=true %}
+  {% else %}
+  {% include solved_class.html class=forloop.index ess=false %}
+  {% endif %}
 </p>
 {% endif %}
 {% endfor %}

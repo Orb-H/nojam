@@ -251,3 +251,25 @@ kbd {
 		font-size: 1.8rem;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #ccc;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: #ddd;
+	}
+
+	a {
+		color: #b5b5b5;
+	}
+
+	a:hover {
+		color: #eee;
+	}
+
+	hr {
+		border-top: #666 1px solid;
+	}
+}

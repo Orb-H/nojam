@@ -411,7 +411,7 @@ h4 svg {
 }
 
 blockquote {
-	border-left: 5px solid #FD0;
+	border-left: 5px solid $brand-colour;
 	padding: 10px 15px;
 	margin-left: -15px;
 	margin-right: -10px;
@@ -463,4 +463,67 @@ img {
 
 .cms-editor-active .editor-link {
 	display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: $body-background-color-dark;
+
+		&::before {
+			background-color: $content-background-color-dark;
+		}
+
+		@media (min-width: $mobile-break) {
+			&::after {
+				background-color: $nav-background-color-dark;
+			}
+
+			&::before {
+				background-color: $content-background-color-dark;
+			}
+		}
+	}
+
+	header {
+		background-color: $nav-background-color-dark;
+
+		h1 {
+			color: #ddd;
+			background-color: $brand-colour-dark;
+		}
+	}
+
+	.content {
+		background-color: $content-background-color-dark;
+		color: $content-color-dark;
+	}
+
+	.nav-item {
+		> a {
+			color: #909090;
+		}
+
+		&.current > a, > a:active, > a:hover {
+			color: #ddd;
+		}
+	}
+
+	#search-input {
+		background-color: $content-background-color-dark;
+
+		&:focus {
+			border-left-color: $brand-colour-dark;
+		}
+	}
+
+	.badge {
+		&.major {
+			background-color: $brand-colour-dark;
+		}
+	}
+
+	blockquote {
+		border-left: 5px solid $brand-colour-dark;
+		background-color: $brand-colour-light-dark;
+	}
 }

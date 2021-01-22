@@ -4,15 +4,18 @@ category: 디버그용 페이지
 regenerate: true
 ---
 
-### 입력
-
-### 출력
+{% include solved_class.html class=1 %}
+{% include solved_class.html class=2 %}
+{% include solved_class.html class=3 %}
+{% include solved_class.html class=4 %}
+{% include solved_class.html class=5 %}
+{% include solved_class.html class=6 %}
+{% include solved_class.html class=7 %}
+{% include solved_class.html class=8 %}
+{% include solved_class.html class=9 %}
+{% include solved_class.html class=10 ess=true %}
 
 ### 풀이
-
-#### C
-
-#### C++
 
 #### Python 3
 
