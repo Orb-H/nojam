@@ -7,7 +7,7 @@ layout: note
 diff: 28
 
 written: "2021-01-20 23:34"
-edited: 
+edited: "2021-01-22 23:46"
 ---
 
 반복문은 일부분의 코드를 일정 횟수만큼 반복적으로 실행시킬 수 있게 하는 문법이다. 반복 구문에는 `for`과 `loop`이 있으며, `foreach` 구문도 있으나 언어에 따라 `for`로 표현하기도 하며 명시적으로 `foreach` 구문임을 표현하는 언어(ex) C#)도 있다.
@@ -171,13 +171,11 @@ while(true) {
 ### 정리
 
 - for문
-  - for(초기식;조건식;증감문){}
+  - for(초기식;조건식;증감문){ }
   - foreach문
-    - for(변수 in iterable){}
+    - for(변수 in iterable){ }
 - while문
-  - while(조건식){}
+  - while(조건식){ }
   - do-while문
-    - do{}while(조건식);
+    - do{ }while(조건식);
 - break/continue
-
-<hr/>
