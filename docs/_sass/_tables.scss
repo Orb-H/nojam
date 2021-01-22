@@ -19,3 +19,13 @@ td, th {
 th {
 	padding-bottom: 4px;
 }
+
+@media (prefers-color-scheme: dark) {
+	tr:nth-child(even) {
+		background: #393939;
+	}
+
+	tr {
+		border-bottom: 1px solid #666;
+	}
+}
