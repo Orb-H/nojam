@@ -1,0 +1,217 @@
+del {
+    color: #999;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+article a {
+    color: #0080ff;
+}
+
+.diff_unrated {
+    color: #2d2d2d;
+    font-weight: bold;
+}
+
+.diff_bronze {
+    color: #ad5600;
+    font-weight: bold;
+}
+
+.diff_silver {
+    color: #435f7a;
+    font-weight: bold;
+}
+
+.diff_gold {
+    color: #ec9a00;
+    font-weight: bold;
+}
+
+.diff_platinum {
+    color: #27e2a4;
+    font-weight: bold;
+}
+
+.diff_diamond {
+    color: #00b4fc;
+    font-weight: bold;
+}
+
+.diff_ruby {
+    color: #ff0062;
+    font-weight: bold;
+}
+
+.lang_c {
+    color: #5c6bc0;
+    font-weight: bold;
+}
+
+.lang_cpp {
+    color: #659ad2;
+    font-weight: bold;
+}
+
+.lang_python3 {
+    color: #ffd43b;
+    font-weight: bold;
+}
+
+.lang_python2 {
+    color: #ffe873;
+    font-weight: bold;
+}
+
+.lang_java {
+    color: #ed8b00;
+    font-weight: bold;
+}
+
+.lang_js {
+    color: #f0db4f;
+    font-weight: bold;
+}
+
+.lang_cs {
+    color: #a077db;
+    font-weight: bold;
+}
+
+.lang_php {
+    color: #787cb5;
+    font-weight: bold;
+}
+
+.lang_ruby {
+    color: #d51f06;
+    font-weight: bold;
+}
+
+.lang_kt {
+    color: #6b70fc;
+    font-weight: bold;
+}
+
+.lang_rust {
+    color: #000;
+    font-weight: bold;
+}
+
+code.boj_class {
+    background-color: #0076c0;
+
+    > a {
+        color: #fff;
+        font-family: "NanumSquare";
+    }
+}
+
+code.solved_class {
+    padding: 4px 6px;
+    z-index: -1;
+
+    > a {
+        font-weight: bold;
+        font-family: "NanumSquare";
+        color: #fff;
+        mix-blend-mode: overlay;
+    }
+}
+
+code.solved_class1 {
+    background-color: #1d7edd;
+}
+
+code.solved_class2 {
+    background-color: #1ab3e2;
+}
+
+code.solved_class3 {
+    background-color: #16d671;
+}
+
+code.solved_class4 {
+    background-color: #23c91b;
+}
+
+code.solved_class5 {
+    background-color: #99d111;
+}
+
+code.solved_class6 {
+    background-color: #e5bb0c;
+}
+
+code.solved_class7 {
+    background-color: #ef9e0f;
+}
+
+code.solved_class8 {
+    background-color: #ff6700;
+}
+
+code.solved_class9 {
+    background-color: #ef165e;
+}
+
+code.solved_class10 {
+    background-color: #8f1ae2;
+}
+
+code.solved_essential {
+    background-color: $brand-colour;
+    color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    code.boj_class {
+        background-color: #004f80;
+    }
+
+    code.solved_class1 {
+        background-color: #15599e;
+    }
+    
+    code.solved_class2 {
+        background-color: #137fa0;
+    }
+    
+    code.solved_class3 {
+        background-color: #109d52;
+    }
+    
+    code.solved_class4 {
+        background-color: #1b9915;
+    }
+    
+    code.solved_class5 {
+        background-color: #77a00d;
+    }
+    
+    code.solved_class6 {
+        background-color: #a58609;
+    }
+    
+    code.solved_class7 {
+        background-color: #a86e0b;
+    }
+    
+    code.solved_class8 {
+        background-color: #b34700;
+    }
+    
+    code.solved_class9 {
+        background-color: #a70c3f;
+    }
+    
+    code.solved_class10 {
+        background-color: #62129b;
+    }
+
+    code.solved_essential {
+        background-color: $brand-colour-dark;
+    }
+}
