@@ -7,7 +7,7 @@ layout: note
 diff: 27
 
 written: "2021-01-24 14:52"
-edited:
+edited: "2021-01-24 15:26"
 ---
 
 ### 배열
