@@ -7,7 +7,7 @@ layout: note
 diff: 30
 
 written: "2021-01-12 22:48"
-edited: "2021-01-18 23:43"
+edited: "2021-01-24 21:57"
 ---
 
 ### 언어별 입출력
@@ -18,20 +18,20 @@ edited: "2021-01-18 23:43"
 
 |포맷|의미|
 |:-:|:-:|
-|%c|문자 하나(아스키 코드)|
-|%d|int 범위의 정수|
-|%ld|long 범위의 정수|
-|%lld|long long 범위의 정수|
-|%u|unsigned int 범위의 정수|
-|%lu|unsigned long 범위의 정수|
-|%llu|unsigned long long 범위의 정수|
-|%o|8진수 숫자(0aaaa... 꼴)|
-|%x, %X[^1]|16진수 숫자(0xgggg... 꼴)|
-|%f, %F[^1]|float 범위의 실수|
-|%lf, %lF[^1]|double 범위의 실수|
-|%Lf, %LF[^1]|long double 범위의 실수|
-|%s|다음 whitespace 전까지의 문자열|
-|%%|%|
+|`%c`|문자 하나(아스키 코드)|
+|`%d`|`int` 범위의 정수|
+|`%ld`|`long` 범위의 정수|
+|`%lld`|`long long` 범위의 정수|
+|`%u`|`unsigned int` 범위의 정수|
+|`%lu`|`unsigned long` 범위의 정수|
+|`%llu`|`unsigned long long` 범위의 정수|
+|`%o`|8진수 숫자(0aaaa... 꼴)|
+|`%x`, `%X`[^1]|16진수 숫자(0xgggg... 꼴)|
+|`%f`, `%F`[^1]|`float` 범위의 실수|
+|`%lf`, `%lF`[^1]|`double` 범위의 실수|
+|`%Lf`, `%LF`[^1]|`long double` 범위의 실수|
+|`%s`|다음 whitespace 전까지의 문자열|
+|`%%`|`%`|
 
 사용 예시는 아래와 같다.
 
