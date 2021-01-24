@@ -176,12 +176,6 @@ public class Main {
         Iterator<Integer> it = l2.iterator();
         while (it.hasNext()) // Iterator로 순회
             System.out.print(it.next() + " ");
-        l2.forEach(new Consumer<Integer> { // forEach로 순회(???)
-            public void accept(Integer i) {
-                System.out.print(i + " ");
-            }
-        });
-        l2.forEach((i) -> System.out.print(i + " ")); // Consumer도 @FunctionalInterface라 Lambda 형식이 가능하다
     }
 }
 ```
