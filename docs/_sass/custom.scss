@@ -10,6 +10,10 @@ article a {
     color: #0080ff;
 }
 
+article a.invalid {
+    color: #c04040;
+}
+
 .diff_unrated {
     color: #2d2d2d;
     font-weight: bold;
