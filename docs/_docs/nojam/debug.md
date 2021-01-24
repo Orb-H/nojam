@@ -15,6 +15,21 @@ regenerate: true
 {% include solved_class.html class=9 %}
 {% include solved_class.html class=10 ess=true %}
 
+{% include boj_diff.html diff=30 mode=1 %} {% include boj_diff.html diff=29 mode=1 %} {% include boj_diff.html diff=28 mode=1 %} {% include boj_diff.html diff=27 mode=1 %} {% include boj_diff.html diff=26 mode=1 %}<br/>
+{% include boj_diff.html diff=25 mode=1 %} {% include boj_diff.html diff=24 mode=1 %} {% include boj_diff.html diff=23 mode=1 %} {% include boj_diff.html diff=22 mode=1 %} {% include boj_diff.html diff=21 mode=1 %}<br/>
+{% include boj_diff.html diff=20 mode=1 %} {% include boj_diff.html diff=19 mode=1 %} {% include boj_diff.html diff=18 mode=1 %} {% include boj_diff.html diff=17 mode=1 %} {% include boj_diff.html diff=16 mode=1 %}<br/>
+{% include boj_diff.html diff=15 mode=1 %} {% include boj_diff.html diff=14 mode=1 %} {% include boj_diff.html diff=13 mode=1 %} {% include boj_diff.html diff=12 mode=1 %} {% include boj_diff.html diff=11 mode=1 %}<br/>
+{% include boj_diff.html diff=10 mode=1 %} {% include boj_diff.html diff=9 mode=1 %} {% include boj_diff.html diff=8 mode=1 %} {% include boj_diff.html diff=7 mode=1 %} {% include boj_diff.html diff=6 mode=1 %}<br/>
+{% include boj_diff.html diff=5 mode=1 %} {% include boj_diff.html diff=4 mode=1 %} {% include boj_diff.html diff=3 mode=1 %} {% include boj_diff.html diff=2 mode=1 %} {% include boj_diff.html diff=1 mode=1 %}<br/>
+{% include boj_diff.html diff=0 mode=1 %}
+
+`test` content
+
+|Col1|Col2|
+|:-:|:-:|
+|Cell11|Cell12|
+|Cell21|Cell22|
+
 ### 풀이
 
 #### Python 3
