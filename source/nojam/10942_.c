@@ -1,0 +1,1 @@
+int x[2001],y[2001][2001],i,j,m;z(s,e){return e-s<2?(x[s]==x[e])*2+1:!y[s][e]?y[s][e]=z(s+1,e-1)&(x[s]==x[e])*2+1:y[s][e];}main(n){for(scanf("%d",&n);i<n;)scanf("%d",&x[++i]);for(scanf("%d",&m);j++<m;)scanf("%d%d",&n,&i),printf("%d\n",z(n,i)/2);}
