@@ -4,10 +4,10 @@ order: 80
 category: 노트
 layout: note
 
-diff: 25
+diff: 26
 
 written: "2021-01-29 23:24"
-edited: "2021-01-30 22:16"
+edited: "2021-02-03 21:51"
 ---
 
 ※ [기초: 함수 선언 및 정의]({{ site.baseurl }}/note/function)의 내용을 먼저 보는 것을 추천합니다
