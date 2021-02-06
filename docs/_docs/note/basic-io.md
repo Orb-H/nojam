@@ -7,7 +7,7 @@ layout: note
 diff: 30
 
 written: "2021-01-12 22:48"
-edited: "2021-02-05 23:59"
+edited: "2021-02-06 22:49"
 ---
 
 ※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
@@ -78,8 +78,6 @@ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 ```
 
-입력받을 때에는 타입이 항상 `String`으로 들어오고 개행 문자를 기준으로 잘리기 때문에 다른 공백문자로 구분을 하려면 `String.split()` 함수를, 다른 타입으로 바꾸기 위해서는 `Integer.parseInt()`나 `Float.parseFloat()` 같은 파싱 함수를 사용해야한다.
-
 #### Python 3
 
 Python도 마찬가지로 입력의 속도를 높이는 방법이 있다. 바로 `input()`함수를 호출하는 것이 아닌 `sys` 라이브러리의 `stdin`을 직접 참조하는 것이다.
@@ -88,6 +86,32 @@ Python도 마찬가지로 입력의 속도를 높이는 방법이 있다. 바로
 import sys
 n = int(sys.stdin.readline())
 ```
+
+### 그 외
+
+#### Parsing / Split
+
+Java와 Python의 빠른 입력 방식(Python은 일반적인 방법 포함)은 한 번의 함수 실행 시 하나의 문자열을 반환받는다. 따라서 문자열을 정수형이나 실수형으로 변환하거나 상황에 맞게 여러 변수에 나누어 저장하는 과정이 필요하다. 이 때 사용할 수 있는 함수가 존재한다.
+
+##### Java
+
+- `String.charAt(int index)`: 문자열의 `index`에 해당하는 문자(`char`)를 반환
+- `#Integer.parseInt(String s)`: 문자열이 나타내는 `int` 값을 반환
+- `#Long.parseLong(String s)`: 문자열이 나타내는 `long` 값을 반환
+- `#Float.parseFloat(String s)`: 문자열이 나타내는 `float` 값을 반환
+- `#Double.parseDouble(String s)`: 문자열이 나타내는 `double` 값을 반환
+- `String.split(String regex)`: `regex`의 정규 표현식에 해당하는 문자(열)를 기준으로 자른 문자열의 배열을 반환
+- `String.split(String regex, int limit)`: `regex`의 정규 표현식에 해당하는 문자(열)를 기준으로 최대 `limit - 1`번 자른 문자열의 배열을 반환
+
+<small>#은 `static` 메서드를 의미</small>
+
+##### Python
+
+- `int(s)`: 주어진 객체를 정수형으로 변환한 값을 반환
+- `float(s)`: 주어진 객체를 실수형으로 변환한 값을 반환
+- `s.split(sep=None, maxsplit=-1)`
+  - `sep == None`일 때, 공백 문자를 기준으로 분할하되, 공백 문자로 둘러쌓인 빈 문자열은 포함하지 않는다.
+  - `sep != None`일 때, 최대 `maxsplit`번 분할한 문자열 배열을 반환
 
 #### Python 3 팁
 
@@ -120,17 +144,28 @@ for i in range(len(a)):
 
 ### 정리
 
-- 포맷 문자열
-  - 문자: `%c`
-  - 부호있는 10진수 정수: `%d`, `%ld`, `%lld`
-  - 부호없는 10진수 정수: `%u`, `%lu`, `%llu`
-  - 16진수 정수: `%x`, `%lx`, `%llx` (`x` 대신 `X`를 사용할 경우 대문자로 입/출력)
-  - 실수: `%f`, `%lf`, `%Lf` (`f` 대신 `F`를 사용할 경우 inf, nan 등을 대문자로 입/출력)
-  - 문자열: `%s`
+- 특수한 문자열
+  - 포맷 문자열
+    - 문자: `%c`
+    - 부호있는 10진수 정수: `%d`, `%ld`, `%lld`
+    - 부호없는 10진수 정수: `%u`, `%lu`, `%llu`
+    - 16진수 정수: `%x`, `%lx`, `%llx` (`x` 대신 `X`를 사용할 경우 대문자로 입/출력)
+    - 실수: `%f`, `%lf`, `%Lf` (`f` 대신 `F`를 사용할 경우 inf, nan 등을 대문자로 입/출력)
+    - 문자열: `%s`
+  - 이스케이프 문자
+    - `\n`: 개행
+    - `\t`: 탭
+    - `\\`: `\`
+    - `\'`: `'`
+    - `\"`: `"`
+    - `\0`: 널 문자
 - 빠른 입출력
   - C++: `ios::sync_with_base(false);`, `cin.tie(NULL);` / `endl` 사용 회피
-  - Java: Scanner 대신 BufferedReader / System.out 대신 BufferedWriter
+  - Java: `Scanner` 대신 `BufferedReader` / `System.out` 대신 `BufferedWriter`
   - Python: `sys.stdin.readline()`
+- 파싱/분할
+  - Java: `<T>.parse<T>`, `String.split()`
+  - Python: `int()`, `float()`, `split()`
 
 <hr />
 
