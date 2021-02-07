@@ -7,14 +7,14 @@ layout: note
 diff: 27
 
 written: "2021-01-24 22:57"
-edited:
+edited: "2021-02-07 22:31"
 ---
 
-문자열은 문자의 나열을 자료형으로 지정한 것이다. 프로그램의 입출력에서 직접적으로 가장 많이 쓰이는 자료형이라고 할 수 있다.
+※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
 
 ### C
 
-#### 저장 방식
+#### C-string
 
 C에서의 문자열은 `char` 타입의 배열 중 특수한 것을 문자열이라고 할 수 있다. 문자 배열 중에서 마지막 원소가 널 문자(`\0`)인 것들은 C가 문자열이라고 인식한다. 예를 들어, `"Hello!"`라는 문자열이 있다고 하면, 그 구조는 아래와 같을 것이다.
 
@@ -37,25 +37,8 @@ C에서의 문자열은 `char` 타입의 배열 중 특수한 것을 문자열�
 |`strncmp(s1, s2)`|`s1`과 `s2`의 첫 `n`문자를 비교|
 |`strlen(s)`|`s`의 길이를 반환|
 |`memcpy(p1, p2, n)`|`p1`의 위치에 `p2`의 데이터를 `n`바이트만큼 복사|
-|`memset(p, val, n)`|`p`의 위치부터 `n`바이트만큼 `val`(`unsigned char` 값)으로 설정|
+|`memset(p, val, n)`|`p`의 위치부터 `n`바이트만큼 `val`으로 설정|
 |`s[n]`|`s`의 `n` 위치의 문자 반환|
-
-```c
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char input[20] = {1,};
-    char goal[20] = {0,};
-
-    while (strcmp(goal, input) != 0) { // 이전 입력값과 같을 경우 탈출
-        strncpy(goal, input, 20); // 이전 입력값 복사
-        scanf("%s", input); // 입력
-    }
-
-    printf("연속으로 중복된 값 출력\n");
-}
-```
 
 ### C++
 
@@ -70,28 +53,11 @@ C++은 `<string>` 헤더의 `string` 클래스를 사용한다. `string` 클래�
 |함수|기능|
 |:-:|:-:|
 |`s.size()`, `s.length()`|`s`의 길이를 반환|
-|`s.copy()`|`s`를 `char[]`형 또는 `char*`형 변수에 복사|
+|`s.copy()`|`s`를 `char*`형 변수로 변환|
 |`string(s)`|`s`의 내용을 가진 새로운 `string` 생성|
 |`s.append(t)`, `s += t`|`s`의 뒤에 `t`를 덧붙임|
 |`s.substr(x, n)`, `string(s, x, n)`|`s`의 `x` 위치부터 `n`개의 문자를 가진 `string` 반환|
 |`s.at(n)`, `s[n]`|`s`의 `n` 위치의 문자 반환|
-
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
-int main() {
-    string input;
-    string res;
-
-    while (res.length() < 100) { // 지금까지 축적한 문자열의 길이가 100 이상이면 탈출
-        cin >> input; // 입력
-        res.append(input.substr(0, input.length() / 2)); // 입력값의 앞 절반만 축적
-    }
-
-    cout << res << endl; // 축적값 출력
-}
-```
 
 ### Java
 
@@ -112,43 +78,27 @@ Java는 `String` 클래스가 내장되어있다. 따로 패키지나 클래스�
 |`s.indexOf(c)`|문자 `c`가 `s`의 어느 위치에 있는지 반환|
 |`String.join(del, s...)`|`s`의 모든 문자열을 `del`을 구분자로 하여 하나의 문자열로 합침|
 |`s.length()`|`s`의 길이를 반환|
-|`s.replace(old, new)`|`old`에 해당하는 문자/문자열을  `new`로 대체|
+|`s.replace(old, new)`|`old`에 해당하는 문자/문자열을 `new`로 대체|
 |`s.replaceAll(re, new)`|`re`의 정규식에 해당하는 부분문자열을 `new`로 대체|
 |`s.split(re)`|`re`의 정규식에 해당하는 문자열을 기준으로 문자열 분할|
 |`s.substring(begin, end)`|`begin` 위치부터 `end` 위치까지의 substring을 반환|
 |`s.toUpperCase()` / `s.toLowerCase()`|`s`의 모든 알파벳을 대문자/소문자로 변환|
 
-```java
-public class Program {
-    public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        String t[] = br.readLine().split("/");
-        if (t[0].equalsIgnoreCase("Orb_H")) {
-            System.out.println("Welcome, Orb_H");
-            System.out.println("[MSG] " + t[1].replace("+", " "));
-        } else {
-            System.out.println("Nooo... " + t[0].toLowerCase() + " is not authenticated");
-        }
-    }
-}
-```
-
 ### Python
 
-#### 저장 방식
+#### `str`
 
 Python의 문자열은 보통 `str`이라는 타입이라고 불린다. 다른 타입을 문자열로 캐스팅하는 경우 `str()` 함수를 사용한다.
 
 #### 관련 함수
 
-Python의 `str` 관련 코드는 대부분 `list`의 것과 공유한다.
+`str`은 `list`와 거의 유사하게 사용가능하고, 여기에 추가적으로 문자열을 위한 함수를 가지고 있다.
 
 |코드|기능|
 |:-:|:-:|
 |`str(s)`|`s`를 문자열로 변환(`s.__str()__` 실행)|
 |`s[n]`|`s`의 `n` 위치의 문자 반환|
-|`s[begin, end]`|`s`의 `begin`부터 `end`까지의 substring 반환|
+|`s[begin:end]`|`s`의 `begin`부터 `end`까지의 substring 반환|
 |`len(s)`|`s`의 길이를 반환|
 |`c in s`|문자 `c`가 `s`에 들어있는지 여부를 반환|
 |`s.join(t)`|문자열 리스트 `t`의 각 문자열을 `s`를 구분자로 하여 하나의 문자열로 합침|
@@ -157,16 +107,3 @@ Python의 `str` 관련 코드는 대부분 `list`의 것과 공유한다.
 |`s.strip(del)`|`s`의 양쪽 끝을 자르되, `del`에 속하는 모든 문자를 자름|
 |`s.split(del, lim)`|`s`를 `del`을 기준으로 최대 `lim`회 분할|
 |`s += t`|`s` 뒤에 `t` 문자열을 덧붙임|
-
-```python
-s = '    010-1234-5678        '
-s = s.strip()
-print(s.replace('-', ''))
-
-t = s.split('-')
-print('.'.join(t))
-```
-
-<hr/>
-
-<small>소스 코드 아이디어가 하나도 안 떠오릅니다... ㅎㅎ;;ㅈㅅ..ㅋㅋ!! (__)</small>
