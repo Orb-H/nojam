@@ -1,16 +1,15 @@
 ---
-title: "기초: 기본적인 입출력"
+title: "(기본적인 입출력)"
 order: 0
 category: 노트
 layout: note
 
 diff: 30
+basic: true
 
 written: "2021-01-12 22:48"
 edited: "2021-02-06 22:49"
 ---
-
-※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
 
 ### 특수 문자열
 

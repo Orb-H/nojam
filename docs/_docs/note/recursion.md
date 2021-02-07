@@ -1,16 +1,15 @@
 ---
-title: "기초: 재귀 함수"
+title: "(재귀)"
 order: 80
 category: 노트
 layout: note
 
 diff: 26
+basic: true
 
 written: "2021-01-29 23:24"
 edited: "2021-02-07 22:48"
 ---
-
-※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
 
 ### 재귀 함수
 

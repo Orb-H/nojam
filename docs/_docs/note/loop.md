@@ -1,16 +1,15 @@
 ---
-title: "기초: 반복문"
+title: "(반복문)"
 order: 30
 category: 노트
 layout: note
 
 diff: 28
+basic: true
 
 written: "2021-01-20 23:34"
 edited: "2021-02-06 23:24"
 ---
-
-※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
 
 ### for문
 

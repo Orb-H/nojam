@@ -1,16 +1,15 @@
 ---
-title: "기초: 문자열(자료형)"
+title: "(문자열)"
 order: 60
 category: 노트
 layout: note
 
 diff: 27
+basic: true
 
 written: "2021-01-24 22:57"
 edited: "2021-02-07 22:31"
 ---
-
-※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
 
 ### C
 

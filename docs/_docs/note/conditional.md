@@ -1,16 +1,15 @@
 ---
-title: "기초: 조건문 / 불 대수"
+title: "(조건문 / 불 대수)"
 order: 20
 category: 노트
 layout: note
 
 diff: 29
+basic: true
 
 written: "2021-01-19 22:46"
 edited: "2021-02-06 23:20"
 ---
-
-※ 기초 태그가 붙어있는 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
 
 ### C에서의 불 대수(`true` / `false`)
 
