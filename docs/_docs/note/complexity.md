@@ -1,6 +1,6 @@
 ---
 title: "복잡도"
-order: 110
+order: 90
 category: 노트
 layout: note
 
