@@ -91,15 +91,14 @@ regenerate: true
     }
 </script>
 
-{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
-
-각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 ~~2020-03-24 00:00 기준입니다.~~실시간입니다.
+각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다.
 
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
-<br/><small><small>(↑ 크흑... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small></small>
 
 Solved.ac Rating: <span id="solved_rating"></span>
+
+{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
 
 이 사이트에 등록된 맞춘 문제 개수: {{ docs.size }}개
 
