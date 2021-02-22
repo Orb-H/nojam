@@ -56,14 +56,23 @@ regenerate: true
                 prob_count -= count;
                 rating += i * count;
             }
-            console.log(rating);
             rating += Math.round(175 * (1 - Math.pow(0.995, user_data.solved)));
-            console.log(rating);
             rating += Math.round(25 * (1 - Math.pow(0.9, user_data.vote_count)));
-            console.log(rating);
             rating += class_exp[user_data.class];
-            console.log(rating);
             document.getElementById("solved_rating").innerHTML = rating;
+            solved_exp = [0, 30, 60, 90, 120, 150, 200, 300, 400, 500, 650, 800, 950, 1100, 1250, 1400, 1600, 1750, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2850, 2900, 2950, 3000, Infinity];
+            solved_tier = 0;
+            while (solved_exp[solved_tier] < rating) {
+                solved_tier += 1;
+            }
+            solved_tier -= 1;
+            if (solved_tier === 0) {
+                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_unrated">Unrated</span>';
+            } else if (solved_tier === 31) {
+                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_master">Master</span>';
+            } else {
+                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_' + diffs[Math.floor((solved_tier - 1) / 5)] + '">' + diff_names[Math.floor((solved_tier - 1) / 5)] + ' ' + roman[(solved_tier - 1) % 5]; + '</span>';;
+            }
 
             // tag
             var tag_data = await(await fetch("https://api.solved.ac/v2/users/top_tags.json?id=orb_h")).json();
