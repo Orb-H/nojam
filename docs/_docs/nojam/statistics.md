@@ -45,6 +45,26 @@ regenerate: true
                 row.insertCell(-1).innerHTML = diff_data[i].solved_exp_sum;
             }
 
+            // rating
+            var user_data = await(await fetch("https://api.solved.ac/v2/users/show.json?id=orb_h")).json();
+            user_data = user_data.result.user[0];
+            prob_count = 100;
+            rating = 0;
+            class_exp = [0, 25, 50, 100, 150, 200, 210, 220, 230, 240, 250];
+            for(i = 30; i >= 0; i--) {
+                var count = Math.min(diff_data[i].solved, prob_count);
+                prob_count -= count;
+                rating += i * count;
+            }
+            console.log(rating);
+            rating += Math.round(175 * (1 - Math.pow(0.995, user_data.solved)));
+            console.log(rating);
+            rating += Math.round(25 * (1 - Math.pow(0.9, user_data.vote_count)));
+            console.log(rating);
+            rating += class_exp[user_data.class];
+            console.log(rating);
+            document.getElementById("solved_rating").innerHTML = rating;
+
             // tag
             var tag_data = await(await fetch("https://api.solved.ac/v2/users/top_tags.json?id=orb_h")).json();
             var prob_tag = document.getElementById("prob_tag").children[1];
@@ -68,7 +88,9 @@ regenerate: true
 
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
-<br/><small>(↑ 크흑... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small>
+<br/><small><small>(↑ 크흑... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small></small>
+
+Solved.ac Rating: <span id="solved_rating"></span>
 
 이 사이트에 등록된 맞춘 문제 개수: {{ docs.size }}개
 
