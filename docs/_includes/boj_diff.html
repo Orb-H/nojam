@@ -1,0 +1,27 @@
+{%- if include.diff == 0 -%}
+    <span class="diff_unrated">
+    {%- if include.mode == 1 -%}
+        ？ Unrated
+    {%- elsif include.mode == 2 -%}
+        ？
+    {%- else -%}
+        Unrated
+    {%- endif -%}
+    </span>
+{%- else -%}
+    {%- assign lower_diff = "ruby,diamond,platinum,gold,silver,bronze" | split: "," -%}
+    {%- assign camel_diff = "Ruby,Diamond,Platinum,Gold,Silver,Bronze" | split: "," -%}
+    {%- assign roman = "Ⅰ,Ⅱ,Ⅲ,Ⅳ,Ⅴ" | split: "," -%}
+    {%- assign circle_num = "①,②,③,④,⑤" | split: "," -%}
+    {%- assign diff_level = include.diff | minus: 1 | divided_by: 5 -%}
+    {%- assign diff_num = include.diff | minus: 1 | modulo: 5 -%}
+    <span class="diff_{{ lower_diff[diff_level] }}">
+    {%- if include.mode == 1 -%}
+        {{ circle_num[diff_num] }} {{ camel_diff[diff_level] }} {{ roman[diff_num] }}
+    {%- elsif include.mode == 2 -%}
+        {{ circle_num[diff_num] }}
+    {%- else -%}
+        {{ camel_diff[diff_level] }} {{ roman[diff_num] }}
+    {%- endif -%}
+    </span>
+{%- endif -%}

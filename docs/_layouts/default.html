@@ -13,7 +13,6 @@
 		<link href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css" rel="stylesheet" type="text/css">
 		<link href="https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
-		<link rel="stylesheet" href="{{ site.baseurl }}/css/custom.css">
 		<link rel="icon" href="{{ site.baseurl }}/images/favicon-16.png" sizes="16x16">
 		<link rel="icon" href="{{ site.baseurl }}/images/favicon-32.png" sizes="32x32">
 		<link rel="icon" href="{{ site.baseurl }}/images/favicon-48.png" sizes="48x48">
@@ -41,7 +40,11 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 		<script>
 			MathJax.Hub.Config({
-				displayAlign: "left"
+				displayAlign: "left",
+				tex2jax: {
+					inlineMath: [['$', '$'], ["\\(", "\\)"]],
+					displayMath: [['$$', '$$'], ["\\[", "\\]"]]
+				}
 			});
 		</script>
 	</head>
@@ -115,7 +118,13 @@
 					<li class="nav-item top-level">
 						<a href="mailto:orb.cov@gmail.com">제보할 게 있어요! / 이거 추가해주세요!</a>
 					</li>
-        </ul>
+        		</ul>
+
+				<ul>
+					<li class="nav-item">
+						<a>이 사이트는 다크 모드를 지원합니다!</a>
+					</li>
+				</ul>
 			</nav>
 		</header>
 

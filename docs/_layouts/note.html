@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<p align=right>
+  작성: {{ page.written }} <br/>
+  수정: {% if page.edited %}{{ page.edited }}{%- else -%}{{ page.written }}{%- endif -%} <br/>
+  {%- assign diff = page.diff -%}
+  난이도: {% include boj_diff.html diff=diff %}
+</p>
+
+{% if page.basic %}
+※ 이 포스트는 까먹을 만한/더 알면 좋은 것만 정리합니다
+{% endif %}
+
+{{ content }}
+
+<hr />
+
+<div id="disqus_thread"></div>
+<script>
+  if (document.location.href.indexOf("orb-h.github.io") > -1) {
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+    var disqus_config = function () {
+      this.page.url = "https://orb-h.github.io/nojam/note/{{ page.path | split: '/' | last | split: '.' | first }}";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "{{ page.url }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://github-io-problem-solving.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a></noscript>

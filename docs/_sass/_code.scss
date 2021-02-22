@@ -5,8 +5,8 @@ pre, code, tt {
 	border-radius: 2px;
 	line-height: 1.4;
 	font-weight: 400;
-	background-color: #404145;
-	color: #FAFAFA;
+	background-color: #f8f8f2;
+	color: #282a36;
 	border-radius: 2px;
 }
 
@@ -34,4 +34,11 @@ li > code,
 p > code {
 	padding: 4px 6px;
 	white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+	pre, code, tt {
+		background-color: #282a36;
+		color: #f8f8f2;
+	}
 }

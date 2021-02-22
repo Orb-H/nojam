@@ -45,6 +45,35 @@ regenerate: true
                 row.insertCell(-1).innerHTML = diff_data[i].solved_exp_sum;
             }
 
+            // rating
+            var user_data = await(await fetch("https://api.solved.ac/v2/users/show.json?id=orb_h")).json();
+            user_data = user_data.result.user[0];
+            prob_count = 100;
+            rating = 0;
+            class_exp = [0, 25, 50, 100, 150, 200, 210, 220, 230, 240, 250];
+            for(i = 30; i >= 0; i--) {
+                var count = Math.min(diff_data[i].solved, prob_count);
+                prob_count -= count;
+                rating += i * count;
+            }
+            rating += Math.round(175 * (1 - Math.pow(0.995, user_data.solved)));
+            rating += Math.round(25 * (1 - Math.pow(0.9, user_data.vote_count)));
+            rating += class_exp[user_data.class];
+            document.getElementById("solved_rating").innerHTML = rating;
+            solved_exp = [0, 30, 60, 90, 120, 150, 200, 300, 400, 500, 650, 800, 950, 1100, 1250, 1400, 1600, 1750, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2850, 2900, 2950, 3000, Infinity];
+            solved_tier = 0;
+            while (solved_exp[solved_tier] < rating) {
+                solved_tier += 1;
+            }
+            solved_tier -= 1;
+            if (solved_tier === 0) {
+                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_unrated">Unrated</span>';
+            } else if (solved_tier === 31) {
+                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_master">Master</span>';
+            } else {
+                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_' + diffs[Math.floor((solved_tier - 1) / 5)] + '">' + diff_names[Math.floor((solved_tier - 1) / 5)] + ' ' + roman[(solved_tier - 1) % 5]; + '</span>';;
+            }
+
             // tag
             var tag_data = await(await fetch("https://api.solved.ac/v2/users/top_tags.json?id=orb_h")).json();
             var prob_tag = document.getElementById("prob_tag").children[1];
@@ -62,13 +91,14 @@ regenerate: true
     }
 </script>
 
-{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
-
-각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다. 전체 문제 수는 ~~2020-03-24 00:00 기준입니다.~~실시간입니다.
+각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다.
 
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
-<br/><small>(↑ 크흑... 감사합니다 mori8, strawji02, malkoG, EatChangmyeong센세...)</small>
+
+Solved.ac Rating: <span id="solved_rating"></span>
+
+{% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
 
 이 사이트에 등록된 맞춘 문제 개수: {{ docs.size }}개
 

@@ -19,3 +19,17 @@ td, th {
 th {
 	padding-bottom: 4px;
 }
+
+td code {
+	padding: 4px 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+	tr:nth-child(even) {
+		background: #292929;
+	}
+
+	tr {
+		border-bottom: 1px solid #666;
+	}
+}
