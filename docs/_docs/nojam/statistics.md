@@ -23,7 +23,7 @@ regenerate: true
     ];
     var roman = ["V", "IV", "III", "II", "I"];
 
-    if (document.location.href.indexOf("orb-h.github.io") > -1) {
+    //if (document.location.href.indexOf("orb-h.github.io") > -1) {
         window.onload = async function(){
             // difficulty
             var diff_data = await(await fetch("https://api.solved.ac/v2/users/problem_stats.json?id=orb_h")).json();
@@ -45,33 +45,21 @@ regenerate: true
                 row.insertCell(-1).innerHTML = diff_data[i].solved_exp_sum;
             }
 
-            // rating
+            // exp
             var user_data = await(await fetch("https://api.solved.ac/v2/users/show.json?id=orb_h")).json();
             user_data = user_data.result.user[0];
-            prob_count = 100;
-            rating = 0;
-            class_exp = [0, 25, 50, 100, 150, 200, 210, 220, 230, 240, 250];
-            for(i = 30; i >= 0; i--) {
-                var count = Math.min(diff_data[i].solved, prob_count);
-                prob_count -= count;
-                rating += i * count;
+            var exp = user_data.exp;
+            var tier = 0;
+            var exp_std = [0, 9590, 23030, 42110, 69590, 109430, 182155, 289055, 447280, 683030, 1036655, 1675295, 2639645, 4100615, 6321305, 10866705, 16048125, 24001635, 36250035, 55173795, 84505965, 130116585, 201274515, 312629175, 487455975, 854592255, 1434667575, 2354086975, 3815963815, 6147157375];
+            for (i = 0; i < 31; i++) {
+                if (exp > exp_std[i]) {
+                    tier = i + 1;
+                }
             }
-            rating += Math.round(175 * (1 - Math.pow(0.995, user_data.solved)));
-            rating += Math.round(25 * (1 - Math.pow(0.9, user_data.vote_count)));
-            rating += class_exp[user_data.class];
-            document.getElementById("solved_rating").innerHTML = rating;
-            solved_exp = [0, 30, 60, 90, 120, 150, 200, 300, 400, 500, 650, 800, 950, 1100, 1250, 1400, 1600, 1750, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2850, 2900, 2950, 3000, Infinity];
-            solved_tier = 0;
-            while (solved_exp[solved_tier] < rating) {
-                solved_tier += 1;
-            }
-            solved_tier -= 1;
-            if (solved_tier === 0) {
-                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_unrated">Unrated</span>';
-            } else if (solved_tier === 31) {
-                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_master">Master</span>';
+            if (tier === 0) {
+                document.getElementById("exp_rating").innerHTML = exp + ' / <span class="diff_unrated">Unrated</span>';
             } else {
-                document.getElementById("solved_rating").innerHTML = document.getElementById("solved_rating").innerHTML + ' / <span class="diff_' + diffs[Math.floor((solved_tier - 1) / 5)] + '">' + diff_names[Math.floor((solved_tier - 1) / 5)] + ' ' + roman[(solved_tier - 1) % 5]; + '</span>';;
+                document.getElementById("exp_rating").innerHTML = exp + ' / <span class="diff_' + diffs[Math.floor((tier - 1) / 5)] + '">' + diff_names[Math.floor((tier - 1) / 5)] + ' ' + roman[(tier - 1) % 5]; + '</span>';;
             }
 
             // tag
@@ -88,7 +76,7 @@ regenerate: true
                 row.insertCell(-1).innerHTML = tag_data[i].solved_exp_sum;
             }
         }
-    }
+    //}
 </script>
 
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다.
@@ -96,7 +84,7 @@ regenerate: true
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=orb_h)](https://solved.ac/orb_h)
 
-Solved.ac Rating: <span id="solved_rating"></span>
+Solved.ac 경험치: <span id="exp_rating"></span>
 
 {% assign docs = site.docs | where: "category", "백준" | where_exp: "item", "item.solve_exclude == nil" %}
 
