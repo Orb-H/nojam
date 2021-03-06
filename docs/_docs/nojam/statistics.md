@@ -23,7 +23,7 @@ regenerate: true
     ];
     var roman = ["V", "IV", "III", "II", "I"];
 
-    //if (document.location.href.indexOf("orb-h.github.io") > -1) {
+    if (document.location.href.indexOf("orb-h.github.io") > -1) {
         window.onload = async function(){
             // difficulty
             var diff_data = await(await fetch("https://api.solved.ac/v2/users/problem_stats.json?id=orb_h")).json();
@@ -76,7 +76,7 @@ regenerate: true
                 row.insertCell(-1).innerHTML = tag_data[i].solved_exp_sum;
             }
         }
-    //}
+    }
 </script>
 
 각 표의 제목을 클릭하면 항목 별 정렬이 가능합니다.
