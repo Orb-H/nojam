@@ -80,7 +80,7 @@ print(len(a)) # 배열의 길이
 
 #### *List* (Java)
 
-Java에도 리스트가 존재한다. 정확히는 *`List`* 인터페이스와 그 구현체인 `ArrayList`, `LinkedList` 등의 클래스가 존재한다.[^1] 관련 내용은 <a class="invalid" href="">자료구조: 리스트</a>에서 다룬다. 그래도 필요 시 사용해야하니 사용법은 간단하게 적어놓아야할 것 같다. 사용법은 아래와 같다.
+Java에도 리스트가 존재한다. 정확히는 *`List`* 인터페이스와 그 구현체인 `ArrayList`, `LinkedList` 등의 클래스가 존재한다.[^1] 관련 내용은 <a class="invalid" href="{{ site.baseurl }}/note/list">자료구조: 리스트</a>에서 다룬다. 그래도 필요 시 사용해야하니 사용법은 간단하게 적어놓아야할 것 같다. 사용법은 아래와 같다.
 
 ```java
 import java.util.*;

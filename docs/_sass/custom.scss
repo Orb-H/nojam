@@ -8,10 +8,10 @@ del {
 
 article a {
     color: #0080ff;
-}
 
-article a.invalid {
-    color: #c04040;
+    &.invalid {
+        color: #c04040;
+    }
 }
 
 .diff_unrated {
